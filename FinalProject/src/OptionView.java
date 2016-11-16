@@ -16,12 +16,13 @@ public class OptionView extends JPanel{
         private JLabel option3Label;
 		
         private JButton backButton;
-        private JButton whiteThemeButton;
-        private JButton grayThemeButton;
-        private JButton blackThemeButton;
-        private JButton whiteSnakeButton;
-        private JButton graySnakeButton;
-        private JButton blackSnakeButton;
+        private JButton cButton;
+        private JButton rThemeButton;
+        private JButton gThemeButton;
+        private JButton bThemeButton;
+        private JButton rSnakeButton;
+        private JButton gSnakeButton;
+        private JButton bSnakeButton;
 		
         private JSlider volumeSlider;
         
@@ -37,12 +38,13 @@ public class OptionView extends JPanel{
             option3Label = new JLabel("Snake Color");
             
             backButton = new JButton("Back");
-            whiteThemeButton = new JButton("W");
-            grayThemeButton = new JButton("G");
-            blackThemeButton = new JButton("B");
-            whiteSnakeButton = new JButton("W");
-            graySnakeButton = new JButton("G");
-            blackSnakeButton = new JButton("B");
+            cButton = new JButton("Credits");
+            rThemeButton = new JButton("R");        //maybe add these to a smaller panel later, since they will always be grouped and probably in a grid
+            gThemeButton = new JButton("G");
+            bThemeButton = new JButton("B");
+            rSnakeButton = new JButton("R");
+            gSnakeButton = new JButton("G");
+            bSnakeButton = new JButton("B");
             
             volumeSlider = new JSlider(JSlider.HORIZONTAL, VOLUME_MIN, VOLUME_MAX, VOLUME_DEFAULT);
             
@@ -50,14 +52,15 @@ public class OptionView extends JPanel{
             add(option1Label);
             add(volumeSlider);
             add(option2Label);
-            add(whiteThemeButton);
-            add(grayThemeButton);
-            add(blackThemeButton);
+            add(rThemeButton);
+            add(gThemeButton);
+            add(bThemeButton);
             add(option3Label);
-            add(whiteSnakeButton);
-            add(graySnakeButton);
-            add(blackSnakeButton);
+            add(rSnakeButton);
+            add(gSnakeButton);
+            add(bSnakeButton);
             add(backButton);
+            add(cButton);
             
         }
         
@@ -67,21 +70,27 @@ public class OptionView extends JPanel{
 
         }
         
-        public JButton getWhiteThemeButton() {
+        public JButton getRThemeButton() {
 
-            return this.whiteThemeButton;
-
-        }
-        
-        public JButton getGrayThemeButton() {
-
-            return this.grayThemeButton;
+            return this.rThemeButton;
 
         }
         
-        public JButton getBlackThemeButton() {
+        public JButton getGThemeButton() {
 
-            return this.blackThemeButton;
+            return this.gThemeButton;
+
+        }
+        
+        public JButton getBThemeButton() {
+
+            return this.bThemeButton;
+
+        }
+        
+        public JButton getCButton() {
+
+            return this.cButton;
 
         }
         

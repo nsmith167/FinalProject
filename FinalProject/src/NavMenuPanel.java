@@ -1,23 +1,33 @@
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NavMenuPanel extends JPanel{
-    JButton mainButton;
-    JButton optionsButton;
-    JButton aboutButton;
-    JButton creditsButton;  
+public class NavMenuPanel extends JPanel {
+
+    private JLabel menuTitle;
+
+    private JButton gButton;
+    private JButton scButton;
+    private JButton oButton;
+    private JButton aButton;  
+	
     public NavMenuPanel() {
-        super();       
-        mainButton = new JButton("Main");
-        optionsButton = new JButton("Options");
-        aboutButton = new JButton("About");
-        creditsButton = new JButton("Credits");
+	
+        super();
+		
+        menuTitle = new JLabel("Navigation Menu");
+
+		gButton = new JButton("Play");
+		scButton = new JButton("High Scores");
+		oButton = new JButton("Options");
+		aButton = new JButton("About"); 
                                   
-        add(mainButton);
-        add(optionsButton);
-        add(aboutButton);
-        add(creditsButton);   
+        add(menuTitle);
+        add(gButton);
+        add(scButton);
+        add(oButton);
+		add(aButton);		
         
     }   
     
