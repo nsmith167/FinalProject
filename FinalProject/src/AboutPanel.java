@@ -1,21 +1,27 @@
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class AboutPanel extends JPanel{
     
-    JTextField aboutTitle;
-    JButton backButton;
+    private JLabel aboutTitle;
+    private JButton backButton;
     
     AboutPanel() {
         
-        aboutTitle = new JTextField("About Menu");
-        backButton = new JButton("Back to Main Menu");
+        aboutTitle = new JLabel("About Menu");
+        backButton = new JButton("Back");
 
         add(aboutTitle);
         add(backButton);
         
+    }
+    
+    public JButton getBackButton() {
+
+        return this.backButton;
+
     }
     
 }

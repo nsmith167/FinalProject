@@ -3,48 +3,86 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.JTextField;
 
 public class OptionsView extends JPanel{
         
-        JTextField optionsTitle;
-        JLabel option1Label;
-        JLabel option2Label;
-        JLabel option3Label;
+        private final int VOLUME_MIN = 0;
+        private final int VOLUME_MAX = 100;
+        private final int VOLUME_DEFAULT = 50;
+		
+        private JLabel optionTitle;
+        private JLabel option1Label;
+        private JLabel option2Label;
+        private JLabel option3Label;
+		
+        private JButton backButton;
+        private JButton whiteThemeButton;
+        private JButton grayThemeButton;
+        private JButton blackThemeButton;
+        private JButton whiteSnakeButton;
+        private JButton graySnakeButton;
+        private JButton blackSnakeButton;
+		
+        private JSlider volumeSlider;
         
-        JButton whiteThemeButton;
-        JButton grayThemeButton;
-        JButton blackThemeButton;
-        JButton whiteSnakeButton;
-        JButton graySnakeButton;
-        JButton blackSnakeButton;
-        
-        JSlider volumeSlider;
-        
-        OptionsModel o_model;
+        private OptionsModel o_model;
         
         OptionsView(OptionsModel o_model) {
             
             this.o_model = o_model;
             
-            whiteThemeButton = new JButton("W");;
-            grayThemeButton = new JButton("G");;
-            blackThemeButton = new JButton("B");;
-            whiteSnakeButton = new JButton("W");;
-            graySnakeButton = new JButton("G");;
-            blackSnakeButton = new JButton("B");;
+            optionTitle = new JLabel("Option Menu");
+            option1Label = new JLabel("Game Volume");
+            option2Label = new JLabel("Theme Color");
+            option3Label = new JLabel("Snake Color");
             
-            add(optionsTitle);
+            backButton = new JButton("Back");
+            whiteThemeButton = new JButton("W");
+            grayThemeButton = new JButton("G");
+            blackThemeButton = new JButton("B");
+            whiteSnakeButton = new JButton("W");
+            graySnakeButton = new JButton("G");
+            blackSnakeButton = new JButton("B");
+            
+            volumeSlider = new JSlider(JSlider.HORIZONTAL, VOLUME_MIN, VOLUME_MAX, VOLUME_DEFAULT);
+            
+            add(optionTitle);
             add(option1Label);
+            add(volumeSlider);
+            add(option2Label);
             add(whiteThemeButton);
             add(grayThemeButton);
             add(blackThemeButton);
-            add(option2Label);
+            add(option3Label);
             add(whiteSnakeButton);
             add(graySnakeButton);
             add(blackSnakeButton);
-            add(option3Label);
-            add(volumeSlider);
+            add(backButton);
             
         }
+        
+        public JButton getBackButton() {
+
+            return this.backButton;
+
+        }
+        
+        public JButton getWhiteThemeButton() {
+
+            return this.whiteThemeButton;
+
+        }
+        
+        public JButton getGrayThemeButton() {
+
+            return this.grayThemeButton;
+
+        }
+        
+        public JButton getBlackThemeButton() {
+
+            return this.blackThemeButton;
+
+        }
+        
 }

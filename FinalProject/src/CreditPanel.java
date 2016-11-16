@@ -1,21 +1,27 @@
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class CreditPanel extends JPanel{
     
-    JTextField creditTitle;
-    JButton backButton;
+    private JLabel creditTitle;
+    private JButton backButton;
     
     CreditPanel() {
         
-        creditTitle = new JTextField("Credit Menu");
-        backButton = new JButton("Back to Main Menu");
+        creditTitle = new JLabel("Credit Menu");
+        backButton = new JButton("Back");
 
         add(creditTitle);
         add(backButton);
         
     }
     
+    public JButton getBackButton() {
+
+        return this.backButton;
+
+    }
+        
 }
