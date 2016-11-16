@@ -1,13 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Lauren
- */
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,39 +5,46 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
-/**
- *
- * @author jrimland-air
- */
 public class OptionsView extends JPanel{
-        JButton retButton;
-        JTextField playerName;
-        JLabel EnterDiff;
-        JSlider difficulty;
+        
+        JTextField optionsTitle;
+        JLabel option1Label;
+        JLabel option2Label;
+        JLabel option3Label;
+        
+        JButton whiteThemeButton;
+        JButton grayThemeButton;
+        JButton blackThemeButton;
+        JButton whiteSnakeButton;
+        JButton graySnakeButton;
+        JButton blackSnakeButton;
+        
+        JSlider volumeSlider;
         
         OptionsModel o_model;
         
-        OptionsView(OptionsModel o_model)
-        {
+        OptionsView(OptionsModel o_model) {
+            
             this.o_model = o_model;
-                   
             
-            playerName = new JTextField("--Enter Player Name--");
-            difficulty = new JSlider(JSlider.HORIZONTAL, 1,10,5);
-            difficulty.setMajorTickSpacing(1);
-            difficulty.setPaintLabels(true);
-            difficulty.setPaintTicks(true);
-
-            EnterDiff = new JLabel("  Enter Difficulty:");
-
-            // It may be useful to have a Save & Return button
+            whiteThemeButton = new JButton("W");;
+            grayThemeButton = new JButton("G");;
+            blackThemeButton = new JButton("B");;
+            whiteSnakeButton = new JButton("W");;
+            graySnakeButton = new JButton("G");;
+            blackSnakeButton = new JButton("B");;
             
-            //retButton = new JButton("Save and Return");
-
-            add(playerName);
-            add(EnterDiff);
-            add(difficulty);
-
-            //add(retButton);               
+            add(optionsTitle);
+            add(option1Label);
+            add(whiteThemeButton);
+            add(grayThemeButton);
+            add(blackThemeButton);
+            add(option2Label);
+            add(whiteSnakeButton);
+            add(graySnakeButton);
+            add(blackSnakeButton);
+            add(option3Label);
+            add(volumeSlider);
+            
         }
 }
