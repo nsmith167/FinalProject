@@ -2,19 +2,15 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author Nathan
- */
 public class NavController {
     
     NavModel n_model;
     NavView n_view;
     
     //Instance Variables for Options Model, View, and Controller
-    OptionsModel o_model;
-    OptionsView o_view;
-    OptionsController o_Controller;  
+    OptionModel o_model;
+    OptionView o_view;
+    OptionController o_Controller;  
            
     // TODO: Create instances of your MainModel and MainController once you implement them
     MainView m_view;
@@ -23,9 +19,9 @@ public class NavController {
         this.n_model = n_model;
         this.n_view = n_view;
         
-        o_model = new OptionsModel();        
-        o_view = new OptionsView(o_model);
-        o_Controller = new OptionsController(o_model, o_view); 
+        o_model = new OptionModel();        
+        o_view = new OptionView(o_model);
+        o_Controller = new OptionController(o_model, o_view); 
         
         m_view = new MainView();
                 
@@ -47,6 +43,7 @@ public class NavController {
             //Pass a Main View object to our Navigation View
             n_view.switchToMainPanel(m_view);
         }
+        
     }         
     
     //TODO: Add listeners on buttons to switch to other Panels

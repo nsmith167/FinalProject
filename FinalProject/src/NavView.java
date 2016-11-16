@@ -3,8 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-
-/**
+/*
  *
  *  The Nav View exposes methods to the Nav Controller that allow it to switch panels
  * 
@@ -27,7 +26,7 @@ public class NavView extends JFrame{
         add(nVpanel);    
     }
     
-    public void switchToOptionsPanel(OptionsView o_view)
+    public void switchToOptionsPanel(OptionView o_view)
     {
         nVpanel.removeSplash();
         nVpanel.removeMain();

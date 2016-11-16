@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-public class OptionsView extends JPanel{
+public class OptionView extends JPanel{
         
         private final int VOLUME_MIN = 0;
         private final int VOLUME_MAX = 100;
@@ -25,9 +25,9 @@ public class OptionsView extends JPanel{
 		
         private JSlider volumeSlider;
         
-        private OptionsModel o_model;
+        private OptionModel o_model;
         
-        OptionsView(OptionsModel o_model) {
+        OptionView(OptionModel o_model) {
             
             this.o_model = o_model;
             

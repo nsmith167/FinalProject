@@ -8,6 +8,11 @@
  *
  * @author Lauren
  */
-public class OptionsModel {
+public class OptionController {
+    
+    OptionController(OptionModel o_model, OptionView o_view)
+    {
+        
+    }
     
 }

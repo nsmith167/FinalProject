@@ -7,7 +7,7 @@ public class NavViewPanel extends JPanel{
     NavMenuPanel menu;
     SplashPanel splash;
     
-    OptionsView o_view;
+    OptionView o_view;
     MainView m_view;
     
     public NavViewPanel() {
@@ -23,7 +23,7 @@ public class NavViewPanel extends JPanel{
     //Note: Splash scrren is only shown on startup.  No need to navigate back to it.
     
     
-    public void addOptions(OptionsView o_view)
+    public void addOptions(OptionView o_view)
     {
         this.o_view = o_view; //maintain handle to this view so we can remove it
         add(o_view, BorderLayout.CENTER);

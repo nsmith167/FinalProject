@@ -2,10 +2,6 @@
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Nathan
- */
 public class NavMenuPanel extends JPanel{
     JButton mainButton;
     JButton optionsButton;
@@ -23,6 +19,6 @@ public class NavMenuPanel extends JPanel{
         add(aboutButton);
         add(creditsButton);   
         
-
-    }          
+    }   
+    
 }
