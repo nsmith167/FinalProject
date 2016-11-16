@@ -9,18 +9,18 @@ import javax.swing.JPanel;
 public class NavMenuPanel extends JPanel{
     JButton mainButton;
     JButton optionsButton;
-    JButton instructionsButton;
+    JButton aboutButton;
     JButton creditsButton;  
     public NavMenuPanel() {
         super();       
         mainButton = new JButton("Main");
         optionsButton = new JButton("Options");
-        instructionsButton = new JButton("Instructions");
+        aboutButton = new JButton("About");
         creditsButton = new JButton("Credits");
                                   
         add(mainButton);
         add(optionsButton);
-        add(instructionsButton);
+        add(aboutButton);
         add(creditsButton);   
         
 

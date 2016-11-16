@@ -41,6 +41,7 @@ public class NavView extends JFrame{
         nVpanel.addMain(m_view);        
     }
     
+    //TODO: add methods to switch to other panels
     
     public void addOptionsButtonListener(ActionListener al) 
     {    
@@ -52,7 +53,15 @@ public class NavView extends JFrame{
         nVpanel.menu.mainButton.addActionListener(al);
     }       
     
+    public void addAboutButtonListener(ActionListener al)
+    {
+        nVpanel.menu.aboutButton.addActionListener(al);
+    }
     
-    //TODO: Add listeners to switch to other Panels
+    public void addCreditsButtonListener(ActionListener al)
+    {
+        nVpanel.menu.creditsButton.addActionListener(al);
+    }
+    
     
 }

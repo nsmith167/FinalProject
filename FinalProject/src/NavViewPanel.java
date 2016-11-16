@@ -46,6 +46,7 @@ public class NavViewPanel extends JPanel{
         repaint();
     }
     
+    //TODO: add methods to add panels
     
     public void removeOptions()
     {
@@ -63,5 +64,6 @@ public class NavViewPanel extends JPanel{
     {
         remove(splash);
     }
-            
+    
+    //TODO: add methods for removing panels
 }
