@@ -9,6 +9,8 @@ public class NavViewPanel extends JPanel{
     
     OptionView o_view;
     MainView m_view;
+    AboutPanel a_panel;
+    ScoreView s_view;
     
     public NavViewPanel() {
         super();
@@ -31,7 +33,7 @@ public class NavViewPanel extends JPanel{
         repaint();
     }
 
-    public void addMain(MainView m_view)
+    public void addGame(MainView m_view)
     {
         this.m_view = m_view;  //maintain handle to this view so we can remove it
         add(m_view, BorderLayout.CENTER);
@@ -46,7 +48,22 @@ public class NavViewPanel extends JPanel{
         repaint();
     }
     
-    //TODO: add methods to add panels
+    public void addHighScores(ScoreView s_view)
+    {
+        this.s_view = s_view; //maintain handle
+        add(s_view, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }
+    
+    public void addAbout(AboutPanel a_panel)
+    {
+        this.a_panel = a_panel; //maintain handle
+        add(a_panel, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }
+    
     
     public void removeOptions()
     {
@@ -54,7 +71,7 @@ public class NavViewPanel extends JPanel{
             remove(this.o_view);
     }
     
-    public void removeMain()
+    public void removeGame()
     {
         if (this.m_view != null)
             remove(this.m_view);
@@ -65,5 +82,15 @@ public class NavViewPanel extends JPanel{
         remove(splash);
     }
     
-    //TODO: add methods for removing panels
+   public void removeHighScores()
+   {
+       if(this.s_view != null)
+           remove(this.s_view);
+   }
+   
+   public void removeAbout()
+   {
+       if(this.a_panel != null)
+           remove(this.a_panel);
+   }
 }

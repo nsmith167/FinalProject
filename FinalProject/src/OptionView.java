@@ -38,7 +38,7 @@ public class OptionView extends JPanel{
             option3Label = new JLabel("Snake Color");
             
             backButton = new JButton("Back");
-            cButton = new JButton("Credits");
+            cButton = new JButton("Credits"); //Should this be in the NavView?
             rThemeButton = new JButton("R");        //maybe add these to a smaller panel later, since they will always be grouped and probably in a grid
             gThemeButton = new JButton("G");
             bThemeButton = new JButton("B");

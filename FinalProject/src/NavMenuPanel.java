@@ -6,11 +6,12 @@ import javax.swing.JPanel;
 public class NavMenuPanel extends JPanel {
 
     private JLabel menuTitle;
-
-    private JButton gButton;
-    private JButton scButton;
-    private JButton oButton;
-    private JButton aButton;  
+    
+    //His example does not make these private so that they can be accessed elsewhere
+    JButton gButton;
+    JButton scButton;
+    JButton oButton;
+    JButton aButton;  
 	
     public NavMenuPanel() {
 	
@@ -27,7 +28,7 @@ public class NavMenuPanel extends JPanel {
         add(gButton);
         add(scButton);
         add(oButton);
-		add(aButton);		
+        add(aButton);		
         
     }   
     
