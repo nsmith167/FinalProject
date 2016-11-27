@@ -2,7 +2,10 @@
 /*
  *
  * Snake Game Final Project
- * @authors Nathan, Lauren, Zach
+ * @author Nathan
+ * @author Lauren
+ * @author Zach
+ *
  */
 
 public class App {
