@@ -1,8 +1,12 @@
-/**
- * @authors Nathan, Lauren, Zach
+
+/*
+ *
  * Snake Game Final Project
+ * @authors Nathan, Lauren, Zach
  */
+
 public class App {
+    
     public static void main(String[] args) {
         
         NavModel model = new NavModel();
