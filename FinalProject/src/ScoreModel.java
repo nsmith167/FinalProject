@@ -1,4 +1,10 @@
 
 public class ScoreModel {
     
+    ScoreModel() {
+        
+        
+        
+    }
+    
 }

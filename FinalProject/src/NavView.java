@@ -3,84 +3,88 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-/*
- *
- *  The Nav View exposes methods to the Nav Controller that allow it to switch panels
- * 
- */
 public class NavView extends JFrame{
     
-    NavModel model;
-    NavViewPanel nVpanel;
+    NavModel nModel;
+    NavViewPanel nvPanel;
     
-    NavView(NavModel model)
-    {
-        super("Primary View");
-        this.model = model;
+    NavView(NavModel nModel) {
+        
+        super("Snake Game");
+        this.nModel = nModel;
                           
-        setSize(700, 500);
+        setSize(700, 700);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        nVpanel = new NavViewPanel();
+        nvPanel = new NavViewPanel();
         
-        add(nVpanel);    
+        add(nvPanel);
+        
     }
     
-    public void switchToOptionsPanel(OptionView o_view)
-    {
-        nVpanel.removeSplash();
-        nVpanel.removeGame();
-        nVpanel.removeHighScores();
-        nVpanel.removeAbout();
-        nVpanel.addOptions(o_view);        
+    public void switchToGamePanel(GameView gView) {
+        nvPanel.removeSplash();
+        nvPanel.removeScore();
+        nvPanel.removeOption();
+        nvPanel.removeAbout();
+        nvPanel.removeCredit();
+        nvPanel.addGame(gView);        
     }
     
-    public void switchToGamePanel(MainView m_view)
-    {
-        nVpanel.removeSplash();
-        nVpanel.removeOptions();
-        nVpanel.removeHighScores();
-        nVpanel.removeAbout();
-        nVpanel.addGame(m_view);        
+    public void switchToScorePanel(ScoreView sView) {
+        nvPanel.removeSplash();
+        nvPanel.removeGame();
+        nvPanel.removeOption();
+        nvPanel.removeAbout();
+        nvPanel.removeCredit();
+        nvPanel.addScore(sView);        
     }
     
-    public void switchToHighScoresPanel(ScoreView s_view)
-    {
-        nVpanel.removeSplash();
-        nVpanel.removeOptions();
-        nVpanel.removeGame();
-        nVpanel.removeAbout();
-        nVpanel.addHighScores(s_view);
+    public void switchToOptionPanel(OptionView oView) {
+        nvPanel.removeSplash();
+        nvPanel.removeGame();
+        nvPanel.removeScore();
+        nvPanel.removeAbout();
+        nvPanel.removeCredit();
+        nvPanel.addOption(oView);        
     }
     
-    public void switchToAboutPanel(AboutPanel a_panel)
-    {
-        nVpanel.removeSplash();
-        nVpanel.removeOptions();
-        nVpanel.removeGame();
-        nVpanel.removeHighScores();
-        nVpanel.addAbout(a_panel);
+    public void switchToAboutPanel(AboutPanel aPanel) {
+        nvPanel.removeSplash();
+        nvPanel.removeGame();
+        nvPanel.removeScore();
+        nvPanel.removeOption();
+        nvPanel.removeCredit();
+        nvPanel.addAbout(aPanel);        
     }
     
-    public void addOptionsButtonListener(ActionListener al) 
-    {    
-        nVpanel.menu.oButton.addActionListener(al);
+    public void switchToCreditPanel(CreditPanel cPanel) {
+        nvPanel.removeSplash();
+        nvPanel.removeGame();
+        nvPanel.removeScore();
+        nvPanel.removeOption();
+        nvPanel.removeAbout();
+        nvPanel.addCredit(cPanel);        
+    }
+    
+    public void addGameButtonListener(ActionListener al) {    
+        nvPanel.menu.gameButton.addActionListener(al);
+    } 
+    
+    public void addScoreButtonListener(ActionListener al) {    
+        nvPanel.menu.scoreButton.addActionListener(al);
+    }
+    
+    public void addOptionButtonListener(ActionListener al) {    
+        nvPanel.menu.optionButton.addActionListener(al);
     }    
                     
-    public void addGameButtonListener(ActionListener al) 
-    {    
-        nVpanel.menu.gButton.addActionListener(al);
-    }       
+    public void addAboutButtonListener(ActionListener al) {    
+        nvPanel.menu.aboutButton.addActionListener(al);
+    }      
     
-    public void addAboutButtonListener(ActionListener al)
-    {
-        nVpanel.menu.aButton.addActionListener(al);
+    public void addCreditButtonListener(ActionListener al) {    
+        nvPanel.menu.creditButton.addActionListener(al);
     }
-    
-    public void addHighScoresButtonListener(ActionListener al)
-    {
-        nVpanel.menu.scButton.addActionListener(al);
-    }
-    
     
 }
