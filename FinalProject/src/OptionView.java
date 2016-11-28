@@ -1,4 +1,5 @@
 
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,13 +19,14 @@ public class OptionView extends JPanel{
     OptionView(OptionModel oModel) {
         
         this.oModel = oModel;
-
         optionLabel = new JLabel("Options Menu");
         colorLabel = new JLabel("Change Snake Color");
         color1Button = new JButton("Color 1");
         color2Button = new JButton("Color 2");
         difficultyLabel = new JLabel("Difficulty");
         difficultySlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
+        difficultySlider.setMajorTickSpacing(1);
+        difficultySlider.setPaintTicks(true);
         
         add(optionLabel);
         add(colorLabel);
@@ -32,12 +34,6 @@ public class OptionView extends JPanel{
         add(color2Button);
         add(difficultyLabel);
         add(difficultySlider);
-
-        // It may be useful to have a Save & Return button
-
-        //retButton = new JButton("Save and Return");
-
-        //add(retButton);  
         
     }
     
