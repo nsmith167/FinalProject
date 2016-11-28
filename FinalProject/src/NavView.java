@@ -5,15 +5,15 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class NavView extends JFrame{
     
-    NavModel nModel;
-    NavViewPanel nvPanel;
+    private NavModel nModel;
+    private NavViewPanel nvPanel;
     
     NavView(NavModel nModel) {
         
         super("Snake Game");
         this.nModel = nModel;
                           
-        setSize(700, 700);
+        setSize(1000, 900);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         nvPanel = new NavViewPanel();
