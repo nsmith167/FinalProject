@@ -1,5 +1,7 @@
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Hashtable;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,22 +21,24 @@ public class OptionView extends JPanel{
     
     private JLabel difficultyLabel;
     private JSlider difficultySlider;
+    private JButton saveButton;
     private Hashtable<Integer, JLabel> labelTable;
     
-    private JPanel optionPane;
+    private JPanel optionPane; //for nicer formatting
 
-    OptionView(OptionModel oModel) {
+    OptionView(OptionModel oModel) 
+    {
         
         this.oModel = oModel;
         
         optionPane = new JPanel();
-        optionPane.setLayout(new GridLayout(6, 1));
+        optionPane.setLayout(new GridLayout(7, 1));
         
         optionLabel = new JLabel("Options Menu");
         
         colorLabel = new JLabel("Change Snake Color");
-        color1Button = new JButton("Color 1");
-        color2Button = new JButton("Color 2");
+        color1Button = new JButton("Green");
+        color2Button = new JButton("Blue");
         
         difficultyLabel = new JLabel("Difficulty");
         difficultySlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
@@ -47,14 +51,43 @@ public class OptionView extends JPanel{
         labelTable.put(3, new JLabel("Hard"));
         difficultySlider.setLabelTable(labelTable);
         
+        saveButton = new JButton("Save");
+        
         optionPane.add(optionLabel);
         optionPane.add(colorLabel);
         optionPane.add(color1Button);
         optionPane.add(color2Button);
         optionPane.add(difficultyLabel);
         optionPane.add(difficultySlider);
+        optionPane.add(saveButton);
         add(optionPane);
         
     }
     
+    public void addButtonListener(ActionListener al)
+    {
+        color1Button.addActionListener(al);
+        color2Button.addActionListener(al);
+        saveButton.addActionListener(al);
+    }
+    
+    public JButton getColor1Button()
+    {
+        return color1Button;
+    }
+    
+    public JButton getColor2Button()
+    {
+        return color2Button;
+    }
+    
+    public JButton getSaveButton()
+    {
+        return saveButton;
+    }
+    
+    public int getDifficultyValue()
+    {
+        return difficultySlider.getValue();
+    }
 }

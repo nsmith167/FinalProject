@@ -4,24 +4,24 @@ import java.awt.event.ActionListener;
 
 public class NavController {
     
-    NavModel nModel;
-    NavView nView;
+    private NavModel nModel;
+    private NavView nView;
     
-    GameModel gModel;
-    GameView gView;
-    GameController gController; 
+    private GameModel gModel;
+    private GameView gView;
+    private GameController gController; 
     
-    ScoreModel sModel;
-    ScoreView sView;
-    ScoreController sController; 
+    private ScoreModel sModel;
+    private ScoreView sView;
+    private ScoreController sController; 
     
-    OptionModel oModel;
-    OptionView oView;
-    OptionController oController; 
+    private OptionModel oModel;
+    private OptionView oView;
+    private OptionController oController; 
     
-    AboutPanel aPanel;
+    private AboutPanel aPanel;
     
-    CreditPanel cPanel;
+    private CreditPanel cPanel;
     
     public NavController(NavModel nModel, NavView nView) {
         
@@ -57,6 +57,8 @@ public class NavController {
         {            
             //Pass a Main View object to our Navigation View
             nView.switchToGamePanel(gView);
+            //Pass data from Options to Game View
+            gView.setLabels(oModel.getSnakeColor(), oModel.getDiffculty());
         }
     }
     
