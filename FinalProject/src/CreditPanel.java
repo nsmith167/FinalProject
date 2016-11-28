@@ -8,7 +8,8 @@ public class CreditPanel extends JPanel{
     
     CreditPanel() {
         
-        creditTitle = new JLabel("Credit Menu");
+        creditTitle = new JLabel("Credit Menu: Zachary Ishler, Nathan Smith, Lauren Doutt");
+        
 
         add(creditTitle);
         
