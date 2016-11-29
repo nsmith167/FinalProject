@@ -11,14 +11,14 @@ public class NavView extends JFrame{
     NavView(NavModel nModel) {
         
         super("Snake Game");
+        
         this.nModel = nModel;
-                          
-        setSize(1000, 900);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setSize(800, 800);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         nvPanel = new NavViewPanel();
         
-        add(nvPanel);
+        this.add(nvPanel);
         
     }
     
