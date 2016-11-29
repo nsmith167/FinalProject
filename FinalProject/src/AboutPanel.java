@@ -1,25 +1,47 @@
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class AboutPanel extends JPanel{
     
+    private JPanel aboutPane;
+    private GridBagConstraints gbc;
+    
     private JLabel aboutTitle;
+    private JLabel goal;
+    private JLabel controls;
+    private JLabel instructions;
     
     AboutPanel() {
         
-        aboutTitle = new JLabel("Instructions:");
-    
-        JLabel goal= new JLabel("The Goal is to eat apples to get points.");
-        JLabel controls = new JLabel("You can move up, down, left, and right by hitting the arrows.");
-        JLabel instructions = new JLabel("Move the snake and eat the apples!");
-
-        add(aboutTitle);
+        aboutPane = new JPanel();
+        aboutPane.setLayout(new GridBagLayout());
+        gbc = new GridBagConstraints();
         
-        add(goal);
-        add(controls);
-        add(instructions);
+        aboutTitle = new JLabel("Instructions:");
+        goal= new JLabel("Eat apples to get points. The more you eat the longer your tail gets.");
+        controls = new JLabel("Use the arrow keys to change your direction.");
+        instructions = new JLabel("Don't collide with yourself or the walls.");
+        
+        //Positioning, padding, alignment, etc.
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(10,10,10,10);
+        aboutPane.add(aboutTitle, gbc);
+        
+        gbc.gridy++;
+        aboutPane.add(goal, gbc);
+        
+        gbc.gridy++;
+        aboutPane.add(controls, gbc);
+        
+        gbc.gridy++;
+        aboutPane.add(instructions, gbc);
+        
+        add(aboutPane);
         
     }
     
