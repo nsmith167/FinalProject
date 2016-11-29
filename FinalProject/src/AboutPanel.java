@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -16,6 +17,8 @@ public class AboutPanel extends JPanel{
     private JLabel instructions;
     
     AboutPanel() {
+        
+        this.setLayout(new BorderLayout());
         
         aboutPane = new JPanel();
         aboutPane.setLayout(new GridBagLayout());
@@ -41,7 +44,7 @@ public class AboutPanel extends JPanel{
         gbc.gridy++;
         aboutPane.add(instructions, gbc);
         
-        add(aboutPane);
+        add(aboutPane, BorderLayout.CENTER);
         
     }
     
