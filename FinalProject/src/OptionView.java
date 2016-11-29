@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -18,61 +19,74 @@ public class OptionView extends JPanel{
     
     private JLabel optionLabel;
     
-    private JPanel colorButtonPane;
     private JLabel colorLabel;
+    private JPanel colorButtonPane;
     private JButton color1Button;
     private JButton color2Button;
     
     private JLabel speedLabel;
     private JSlider speedSlider;
+    private Hashtable<Integer, JLabel> speedTable;
+    
     private JLabel appleSizeLabel;
     private JSlider appleSizeSlider;
+    private Hashtable<Integer, JLabel> appleSizeTable;
+    
     private JButton saveButton;
-    private Hashtable<Integer, JLabel> speedLabelTable;
-    private Hashtable<Integer, JLabel> sizeLabelTable;
     
     OptionView(OptionModel oModel) 
     {
         
         this.oModel = oModel;
+        this.setLayout(new BorderLayout());
         
         optionPane = new JPanel();
         optionPane.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         
-        optionLabel = new JLabel("Options Menu");
+        optionLabel = new JLabel("Options");
         
-        colorButtonPane = new JPanel();
+        //Color Option
         colorLabel = new JLabel("Change Snake Color");
+        colorButtonPane = new JPanel();
         color1Button = new JButton("Green");
         color2Button = new JButton("Blue");
+        colorButtonPane.add(color1Button);
+        colorButtonPane.add(color2Button);
         
+        //Snake Speed Option
         speedLabel = new JLabel("Snake Speed");
+        
         speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
         speedSlider.setMajorTickSpacing(1);
         speedSlider.setPaintTicks(true);
         speedSlider.setSnapToTicks(true);
         speedSlider.setPaintLabels(true);
-        speedLabelTable = new Hashtable<>();
-        speedLabelTable.put(1, new JLabel("Slow"));
-        speedLabelTable.put(2, new JLabel("Medium"));
-        speedLabelTable.put(3, new JLabel("Fast"));
-        speedSlider.setLabelTable(speedLabelTable);
         
+        speedTable = new Hashtable<>();
+        speedTable.put(1, new JLabel("Slow"));
+        speedTable.put(2, new JLabel("Medium"));
+        speedTable.put(3, new JLabel("Fast"));
+        
+        speedSlider.setLabelTable(speedTable);
+        
+        //Apple Size Option
         appleSizeLabel = new JLabel("Apple Size");
+        
         appleSizeSlider = new JSlider(JSlider.HORIZONTAL, 15, 25, 15);
         appleSizeSlider.setMajorTickSpacing(5);
         appleSizeSlider.setPaintTicks(true);
         appleSizeSlider.setSnapToTicks(true);
         appleSizeSlider.setPaintLabels(true);
-        sizeLabelTable = new Hashtable<>();
-        sizeLabelTable.put(15, new JLabel("Small"));
-        sizeLabelTable.put(20, new JLabel("Medium"));
-        sizeLabelTable.put(25, new JLabel("Large"));
-        appleSizeSlider.setLabelTable(sizeLabelTable);
+        
+        appleSizeTable = new Hashtable<>();
+        appleSizeTable.put(15, new JLabel("Small"));
+        appleSizeTable.put(20, new JLabel("Medium"));
+        appleSizeTable.put(25, new JLabel("Large"));
+        
+        appleSizeSlider.setLabelTable(appleSizeTable);
         
         saveButton = new JButton("Save");
-        
         
         //Positioning, padding, alignment, etc.
         gbc.gridx = 0;
@@ -84,8 +98,6 @@ public class OptionView extends JPanel{
         optionPane.add(colorLabel, gbc);
         
         gbc.gridy++;
-        colorButtonPane.add(color1Button);
-        colorButtonPane.add(color2Button);
         optionPane.add(colorButtonPane, gbc);
         
         gbc.gridy++;
@@ -103,39 +115,33 @@ public class OptionView extends JPanel{
         gbc.gridy++;
         optionPane.add(saveButton, gbc);
         
-        add(optionPane);
+        this.add(optionPane, BorderLayout.CENTER);
         
     }
     
-    public void addButtonListener(ActionListener al)
-    {
+    public void addButtonListener(ActionListener al) {
         color1Button.addActionListener(al);
         color2Button.addActionListener(al);
         saveButton.addActionListener(al);
     }
     
-    public JButton getColor1Button()
-    {
+    public JButton getColor1Button() {
         return color1Button;
     }
     
-    public JButton getColor2Button()
-    {
+    public JButton getColor2Button() {
         return color2Button;
     }
     
-    public JButton getSaveButton()
-    {
+    public JButton getSaveButton() {
         return saveButton;
     }
     
-    public int getSpeedValue()
-    {
+    public int getSpeedValue() {
         return speedSlider.getValue();
     }
     
-    public int getAppleSize()
-    {
+    public int getAppleSize() {
         return appleSizeSlider.getValue();
     }
 }
