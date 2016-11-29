@@ -52,9 +52,9 @@ public class NavController {
         
     }
     
-    class GameButtonListener implements ActionListener {            
-        public void actionPerformed(ActionEvent e)
-        {            
+    class GameButtonListener implements ActionListener {  
+        @Override
+        public void actionPerformed(ActionEvent e) {            
             //Pass a Main View object to our Navigation View
             nView.switchToGamePanel(gView);
             //Pass data from Options to Game View
@@ -62,34 +62,31 @@ public class NavController {
         }
     }
     
-    class ScoreButtonListener implements ActionListener {            
+    class ScoreButtonListener implements ActionListener { 
+        @Override
         public void actionPerformed(ActionEvent e)
-        {            
-            //Pass an Options View object to our Navigation View
+        {
             nView.switchToScorePanel(sView);
         }
     }     
  
-    class OptionButtonListener implements ActionListener {            
-        public void actionPerformed(ActionEvent e)
-        {            
-            //Pass an Options View object to our Navigation View
+    class OptionButtonListener implements ActionListener {   
+        @Override
+        public void actionPerformed(ActionEvent e) {
             nView.switchToOptionPanel(oView);
         }
     } 
     
-    class AboutButtonListener implements ActionListener {            
-        public void actionPerformed(ActionEvent e)
-        {            
-            //Pass an Options View object to our Navigation View
+    class AboutButtonListener implements ActionListener {  
+        @Override
+        public void actionPerformed(ActionEvent e) {
             nView.switchToAboutPanel(aPanel);
         }
     } 
     
-    class CreditButtonListener implements ActionListener {            
-        public void actionPerformed(ActionEvent e)
-        {            
-            //Pass an Options View object to our Navigation View
+    class CreditButtonListener implements ActionListener { 
+        @Override
+        public void actionPerformed(ActionEvent e) {
             nView.switchToCreditPanel(cPanel);
         }
     } 
