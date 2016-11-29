@@ -11,7 +11,7 @@ public class SplashPanel extends JPanel{
     
     SplashPanel() {
 
-        splashLabel = new JLabel("WELCOME TO SNAKE");
+        splashLabel = new JLabel("WELCOME TO THE SNAKE GAME");
         splashButton = new JButton(new ImageIcon("src/tiny_snek.jpg"));            
         add(splashLabel);
         add(splashButton);

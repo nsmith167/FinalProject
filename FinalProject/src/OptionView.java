@@ -1,7 +1,7 @@
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.Hashtable;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,44 +17,97 @@ public class OptionView extends JPanel{
     private JButton color1Button;
     private JButton color2Button;
     
-    private JLabel difficultyLabel;
-    private JSlider difficultySlider;
-    private Hashtable<Integer, JLabel> labelTable;
+    private JLabel speedLabel;
+    private JSlider speedSlider;
+    private JLabel appleSizeLabel;
+    private JSlider appleSizeSlider;
+    private JButton saveButton;
+    private Hashtable<Integer, JLabel> speedLabelTable;
+    private Hashtable<Integer, JLabel> sizeLabelTable;
     
-    private JPanel optionPane;
+    private JPanel optionPane; //for nicer formatting
 
-    OptionView(OptionModel oModel) {
+    OptionView(OptionModel oModel) 
+    {
         
         this.oModel = oModel;
         
         optionPane = new JPanel();
-        optionPane.setLayout(new GridLayout(6, 1));
+        optionPane.setLayout(new GridLayout(9, 1));
         
         optionLabel = new JLabel("Options Menu");
         
         colorLabel = new JLabel("Change Snake Color");
-        color1Button = new JButton("Color 1");
-        color2Button = new JButton("Color 2");
+        color1Button = new JButton("Green");
+        color2Button = new JButton("Blue");
         
-        difficultyLabel = new JLabel("Difficulty");
-        difficultySlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
-        difficultySlider.setMajorTickSpacing(1);
-        difficultySlider.setPaintTicks(true);
-        difficultySlider.setPaintLabels(true);
-        labelTable = new Hashtable<>();
-        labelTable.put(1, new JLabel("Easy"));
-        labelTable.put(2, new JLabel("Medium"));
-        labelTable.put(3, new JLabel("Hard"));
-        difficultySlider.setLabelTable(labelTable);
+        speedLabel = new JLabel("Snake Speed");
+        speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
+        speedSlider.setMajorTickSpacing(1);
+        speedSlider.setPaintTicks(true);
+        speedSlider.setPaintLabels(true);
+        speedLabelTable = new Hashtable<>();
+        speedLabelTable.put(1, new JLabel("Slow"));
+        speedLabelTable.put(2, new JLabel("Medium"));
+        speedLabelTable.put(3, new JLabel("Fast"));
+        speedSlider.setLabelTable(speedLabelTable);
+        
+        appleSizeLabel = new JLabel("Apple Size");
+        appleSizeSlider = new JSlider(JSlider.HORIZONTAL, 15, 25, 15);
+        appleSizeSlider.setMajorTickSpacing(5);
+        appleSizeSlider.setPaintTicks(true);
+        appleSizeSlider.setSnapToTicks(true);
+        appleSizeSlider.setPaintLabels(true);
+        sizeLabelTable = new Hashtable<>();
+        sizeLabelTable.put(15, new JLabel("Small"));
+        sizeLabelTable.put(20, new JLabel("Medium"));
+        sizeLabelTable.put(25, new JLabel("Large"));
+        appleSizeSlider.setLabelTable(sizeLabelTable);
+        
+        saveButton = new JButton("Save");
         
         optionPane.add(optionLabel);
         optionPane.add(colorLabel);
         optionPane.add(color1Button);
         optionPane.add(color2Button);
-        optionPane.add(difficultyLabel);
-        optionPane.add(difficultySlider);
+        optionPane.add(speedLabel);
+        optionPane.add(speedSlider);
+        optionPane.add(appleSizeLabel);
+        optionPane.add(appleSizeSlider);
+        optionPane.add(saveButton);
         add(optionPane);
         
     }
     
+    public void addButtonListener(ActionListener al)
+    {
+        color1Button.addActionListener(al);
+        color2Button.addActionListener(al);
+        saveButton.addActionListener(al);
+    }
+    
+    public JButton getColor1Button()
+    {
+        return color1Button;
+    }
+    
+    public JButton getColor2Button()
+    {
+        return color2Button;
+    }
+    
+    public JButton getSaveButton()
+    {
+        return saveButton;
+    }
+    
+    public int getSpeedValue()
+    {
+        return speedSlider.getValue();
+    }
+    
+    public int getAppleSize()
+    {
+        return appleSizeSlider.getValue();
+    }
 }
