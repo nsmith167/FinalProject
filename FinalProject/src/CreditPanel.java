@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -18,11 +19,13 @@ public class CreditPanel extends JPanel{
     
     CreditPanel() {
         
+        this.setLayout(new BorderLayout());
+        
         creditPane = new JPanel();
         creditPane.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         
-        creditTitle = new JLabel("Credit Menu");
+        creditTitle = new JLabel("Credits");
         creditText1 = new JLabel("Developers:");
         creditText2 = new JLabel("Nathan Smith");
         creditText3 = new JLabel("Lauren Doutt");
@@ -46,7 +49,7 @@ public class CreditPanel extends JPanel{
         gbc.gridy++;
         creditPane.add(creditText4, gbc);
         
-        this.add(creditPane);
+        this.add(creditPane, BorderLayout.CENTER);
         
     }
     
