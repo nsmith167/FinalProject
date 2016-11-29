@@ -3,13 +3,10 @@ import java.awt.Color;
 
 public class GameModel {
     
-    private Color colorValue;
-    private Integer diffValue;
-    
-    GameModel() {
+    GameModel() 
+    {
         
-        colorValue = Color.GREEN;
-        diffValue = 0;
+        
         
     }
     

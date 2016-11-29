@@ -25,8 +25,11 @@ public class OptionController
                     oModel.setSnakeColor(Color.GREEN);
                 else if(eventButton == oView.getColor2Button())
                     oModel.setSnakeColor(Color.BLUE);
-                else if(eventButton == oView.getSaveButton()) //really only necessary for the slider
-                    oModel.setDifficulty(oView.getDifficultyValue());
+                else if(eventButton == oView.getSaveButton()) //really only necessary for the sliders
+                {
+                    oModel.setSnakeSpeed(oView.getSpeedValue());
+                    oModel.setAppleSize(oView.getAppleSize());
+                }
             }
         }
         

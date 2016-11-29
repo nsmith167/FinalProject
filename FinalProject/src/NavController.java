@@ -58,7 +58,7 @@ public class NavController {
             //Pass a Main View object to our Navigation View
             nView.switchToGamePanel(gView);
             //Pass data from Options to Game View
-            gView.setLabels(oModel.getSnakeColor(), oModel.getDiffculty());
+            gView.setLabels(oModel.getSnakeColor(), oModel.getSnakeSpeed(), oModel.getAppleSize());
         }
     }
     
