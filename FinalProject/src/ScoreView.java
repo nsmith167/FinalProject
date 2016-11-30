@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
+import java.util.ArrayList;
+import java.awt.event.ActionListener;
 
 public class ScoreView extends JPanel{
     
@@ -26,6 +28,9 @@ public class ScoreView extends JPanel{
         
         this.sModel = sModel;
         this.setLayout(new GridLayout(1, 2));
+        
+        ArrayList <String> userNames = new ArrayList<>();
+        ArrayList <Integer> scores = new ArrayList <Integer> ();
         
         //Display Highest Scores
         scorePane = new JPanel();
@@ -67,5 +72,10 @@ public class ScoreView extends JPanel{
         this.add(searchPane);
         
     }
-    
+    public void setuserNames(){
+        
+    }
+    public void setscores(){
+        
+    }
 }
