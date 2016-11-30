@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -19,6 +20,8 @@ public class NavMenuPanel extends JPanel {
     public NavMenuPanel() {
 	
         super();
+        
+        this.setBackground(Color.WHITE);
         
         menuButtonDimension = new Dimension(150, 25);
         
