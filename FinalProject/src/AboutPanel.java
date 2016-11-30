@@ -1,8 +1,7 @@
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -11,38 +10,21 @@ public class AboutPanel extends JPanel{
     private JPanel aboutPane;
     private GridBagConstraints gbc;
     
-    private JLabel aboutTitle;
-    private JLabel goal;
-    private JLabel controls;
-    private JLabel instructions;
+    private JLabel aboutText;
     
     AboutPanel() {
         
         this.setLayout(new BorderLayout());
+        this.setBackground(Color.WHITE);
         
         aboutPane = new JPanel();
-        aboutPane.setLayout(new GridBagLayout());
+        aboutPane.setBackground(Color.WHITE);
+        aboutPane.setLayout(new BorderLayout());
         gbc = new GridBagConstraints();
         
-        aboutTitle = new JLabel("Instructions:");
-        goal= new JLabel("Eat apples to get points. The more you eat the longer your tail gets.");
-        controls = new JLabel("Use the arrow keys to change your direction.");
-        instructions = new JLabel("Don't collide with yourself or the walls.");
+        aboutText = new JLabel("<html><p style=\"text-align:center;font-size:20px\"><b>Instructions:<b><br><br><br>Eat apples to get points.<br><br>The more you eat the longer your tail gets.<br><br>Use the arrow keys to change your direction.<br><br>Don't collide with yourself or the walls</p></html>");
         
-        //Positioning, padding, alignment, etc.
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(10,10,10,10);
-        aboutPane.add(aboutTitle, gbc);
-        
-        gbc.gridy++;
-        aboutPane.add(goal, gbc);
-        
-        gbc.gridy++;
-        aboutPane.add(controls, gbc);
-        
-        gbc.gridy++;
-        aboutPane.add(instructions, gbc);
+        aboutPane.add(aboutText, BorderLayout.CENTER);
         
         add(aboutPane, BorderLayout.CENTER);
         
