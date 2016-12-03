@@ -39,6 +39,9 @@ public class ScoreView extends JPanel{
         
         userNames=sModel.getuserNames();
         scores= sModel.getScores();
+        
+        sModel.saveInfotoFile(userNames, scores);
+        
         String usernamelist= "";
         String scorelist="";
         
