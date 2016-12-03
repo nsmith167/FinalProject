@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 public class ScoreView extends JPanel{
     
@@ -17,12 +18,15 @@ public class ScoreView extends JPanel{
     private JPanel scorePane;
     private JLabel highScoreLabel;
     private JTextArea highScoreList;
+    private JTextArea highUserNameList;
     
     private JPanel searchPane;
     private JLabel searchLabel;
     private MaskFormatter searchBoxFormat;
     private JFormattedTextField searchBox;
     private JTextArea searchResult;
+   
+  
     
     ScoreView(ScoreModel sModel) {
         
@@ -32,17 +36,39 @@ public class ScoreView extends JPanel{
         ArrayList <String> userNames = new ArrayList<>();
         ArrayList <Integer> scores = new ArrayList <Integer> ();
         
-        //Display Highest Scores
-        scorePane = new JPanel();
         
+        userNames=sModel.getuserNames();
+        scores= sModel.getScores();
+        String usernamelist= "";
+        String scorelist="";
+        
+        scorePane = new JPanel();
+
         highScoreLabel = new JLabel("High Scores");
         
-        highScoreList = new JTextArea("XYZ\t1000");
+        for(int i=0; i<userNames.size();i++){
+            usernamelist = usernamelist+ "\n " + userNames.get(i);
+        }
+        highUserNameList= new JTextArea(usernamelist);
+        highUserNameList.setBackground(this.getBackground());
+        highUserNameList.setEditable(false);
+        
+        
+        for(int i=0; i<scores.size();i++){
+            scorelist = scorelist+ "\n " + scores.get(i);
+        }
+        
+        highScoreList = new JTextArea(scorelist);
         highScoreList.setBackground(this.getBackground());
         highScoreList.setEditable(false);
         
-        scorePane.add(highScoreLabel);  //Will change layout later
+        scorePane.add(highScoreLabel);  
+        scorePane.add(highUserNameList);
         scorePane.add(highScoreList);
+        
+        
+     
+      
         
         //Search
         searchPane = new JPanel();
@@ -64,6 +90,7 @@ public class ScoreView extends JPanel{
         searchResult.setBackground(this.getBackground());
         searchResult.setEditable(false);
         
+     
         searchPane.add(searchLabel);    //Will change layout later
         searchPane.add(searchBox);
         searchPane.add(searchResult);
@@ -71,11 +98,6 @@ public class ScoreView extends JPanel{
         this.add(scorePane);
         this.add(searchPane);
         
-    }
-    public void setuserNames(){
-        
-    }
-    public void setscores(){
-        
-    }
+    }   
+    
 }

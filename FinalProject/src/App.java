@@ -15,7 +15,7 @@ public class App {
         NavModel model = new NavModel();
         NavView view = new NavView(model);
         NavController controller = new NavController(model, view);
-        
+
         view.setVisible(true);
         
     }
