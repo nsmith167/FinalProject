@@ -17,8 +17,8 @@ public class ScoreView extends JPanel{
     
     private JPanel scorePane;
     private JLabel highScoreLabel;
-    private JTextArea highScoreList;
-    private JTextArea highUserNameList;
+    private JTextArea fileResults; 
+  
     
     private JPanel searchPane;
     private JLabel searchLabel;
@@ -26,7 +26,6 @@ public class ScoreView extends JPanel{
     private JFormattedTextField searchBox;
     private JTextArea searchResult;
    
-  
     
     ScoreView(ScoreModel sModel) {
         
@@ -35,39 +34,35 @@ public class ScoreView extends JPanel{
         
         ArrayList <String> userNames = new ArrayList<>();
         ArrayList <Integer> scores = new ArrayList <Integer> ();
-        
+        ArrayList <String> info = new ArrayList <String> ();
         
         userNames=sModel.getuserNames();
         scores= sModel.getScores();
+        info=sModel.readInfoFromFile();
         
         sModel.saveInfotoFile(userNames, scores);
         
-        String usernamelist= "";
-        String scorelist="";
+      
+        String displayInfo="";
         
         scorePane = new JPanel();
 
         highScoreLabel = new JLabel("High Scores");
         
-        for(int i=0; i<userNames.size();i++){
-            usernamelist = usernamelist+ "\n " + userNames.get(i);
+      
+     
+         for(int i=0; i<info.size();i++){
+            displayInfo = displayInfo+ "\n " + info.get(i);
         }
-        highUserNameList= new JTextArea(usernamelist);
-        highUserNameList.setBackground(this.getBackground());
-        highUserNameList.setEditable(false);
+         fileResults = new JTextArea(displayInfo);
+         fileResults.setBackground(this.getBackground());
+         fileResults.setEditable(false);
         
         
-        for(int i=0; i<scores.size();i++){
-            scorelist = scorelist+ "\n " + scores.get(i);
-        }
         
-        highScoreList = new JTextArea(scorelist);
-        highScoreList.setBackground(this.getBackground());
-        highScoreList.setEditable(false);
         
         scorePane.add(highScoreLabel);  
-        scorePane.add(highUserNameList);
-        scorePane.add(highScoreList);
+        scorePane.add(fileResults);
         
         
      
