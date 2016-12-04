@@ -24,6 +24,7 @@ public class ScoreView extends JPanel{
     private JLabel searchLabel;
     private MaskFormatter searchBoxFormat;
     private JTextField searchBox;
+    private JButton loadButton;
     private JTextArea searchResult;
    
     
@@ -72,6 +73,7 @@ public class ScoreView extends JPanel{
         
         searchBox = new JTextField("Add Username Here");
         
+        loadButton = new JButton("Load");
         
         /*
         try {
@@ -84,23 +86,30 @@ public class ScoreView extends JPanel{
         searchBox.setColumns(3);
         searchBox.setHorizontalAlignment(JTextField.CENTER);
         */
-        searchResult = new JTextArea("Result");
+        searchResult = new JTextArea();
         searchResult.setBackground(this.getBackground());
         searchResult.setEditable(false);
         
      
         searchPane.add(searchLabel);    //Will change layout later
         searchPane.add(searchBox);
+        searchPane.add(loadButton);
         searchPane.add(searchResult);
         
         this.add(scorePane);
         this.add(searchPane);
         
     }
+      public JButton getLoadButton(){
+         return this.loadButton;
+     }
     public String getSearchField(){
         return this.searchBox.getText();
     }
-    
+      public void addButtonListener(ActionListener al) 
+    { 
+        loadButton.addActionListener(al);
+    }
          public void showSearch(String search)
     {
         searchResult.setText(search);
