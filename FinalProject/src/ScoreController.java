@@ -13,7 +13,7 @@ public class ScoreController {
     ScoreController(ScoreModel sModel, ScoreView sView) {
        
         infoReadFromFile = sModel.readInfoFromFile();
-        /*
+        
         String matchToLookFor = sView.getSearchField();
         
         for(int i=0; i<infoReadFromFile.size(); i++){
@@ -25,6 +25,6 @@ public class ScoreController {
         else{}
     }
                 
-                */
+          
 }
 }
