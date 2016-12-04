@@ -23,7 +23,7 @@ public class ScoreView extends JPanel{
     private JPanel searchPane;
     private JLabel searchLabel;
     private MaskFormatter searchBoxFormat;
-    private JFormattedTextField searchBox;
+    private JTextField searchBox;
     private JTextArea searchResult;
    
     
@@ -63,28 +63,28 @@ public class ScoreView extends JPanel{
         
         scorePane.add(highScoreLabel);  
         scorePane.add(fileResults);
-        
-        
-     
-      
+       
         
         //Search
         searchPane = new JPanel();
         
-        searchLabel = new JLabel("Search:");
+        searchLabel = new JLabel("Search by Username:");
         
+        searchBox = new JTextField("Add Username Here");
+        
+        
+        /*
         try {
             searchBoxFormat = new MaskFormatter("***");
         } catch(ParseException pe) {
             System.out.println("ERR: ParseException");
         }
-        searchBoxFormat.setValidCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        
+        //searchBoxFormat.setValidCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         searchBox = new JFormattedTextField(searchBoxFormat);
         searchBox.setColumns(3);
         searchBox.setHorizontalAlignment(JTextField.CENTER);
-        
-        searchResult = new JTextArea("XYZ\t1000");
+        */
+        searchResult = new JTextArea("Result");
         searchResult.setBackground(this.getBackground());
         searchResult.setEditable(false);
         
@@ -96,6 +96,13 @@ public class ScoreView extends JPanel{
         this.add(scorePane);
         this.add(searchPane);
         
-    }   
+    }
+    public String getSearchField(){
+        return this.searchBox.getText();
+    }
     
+         public void showSearch(String search)
+    {
+        searchResult.setText(search);
+    }
 }

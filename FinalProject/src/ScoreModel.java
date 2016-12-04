@@ -32,7 +32,9 @@ public class ScoreModel {
             for(int i=0; i<usernames.size(); i++){
                 String name= usernames.get(i);
                 Integer score = scores.get(i);
-                out.println(name + " "+ score);
+                out.print(name);
+                out.print(score);   
+                out.println();
             }
             out.close();
         }catch(Exception e){
