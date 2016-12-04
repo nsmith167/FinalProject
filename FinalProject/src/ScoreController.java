@@ -6,10 +6,10 @@ import javax.swing.JButton;
 
 
 public class ScoreController {
-    
+    //variables
     ScoreModel sModel;
     ScoreView sView;
-    ArrayList <String> infoReadFromFile = new ArrayList <String> ();
+    ArrayList <String> infoRead = new ArrayList <String> ();
     
     ScoreController(ScoreModel sModel, ScoreView sView) {
            this.sModel = sModel;
@@ -18,31 +18,35 @@ public class ScoreController {
      class ButtonListener implements ActionListener {            
       public void actionPerformed(ActionEvent e)
       {
-          
+          //checking to see if the clicked button is the load button
             JButton clickSource = (JButton)e.getSource();
             if(clickSource== sView.getLoadButton()){
-                    
-                        infoReadFromFile = sModel.readInfoFromFile();
-                    
+                  
+                //getting the variable the user just entered in the search box
                      String matchToLookFor = sView.getSearchField();
-        
-                     for(int i=0; i<infoReadFromFile.size(); i++){
-            
-                    if (matchToLookFor.equals(infoReadFromFile.get(i))){
-                    sView.showSearch( infoReadFromFile.get(i));
-                    break; 
-                    }
-                    else{
-                       sView.showSearch("No match");
-                    }
-                    }
-                
-               
-                   
-            }else{}
+                     
+                //this arraylist takes the information from the saved file
+                  infoRead=sModel.readInfoFromFile();
+                 
+                  //this variable is going to store the result of the search
+                  String result="";
                     
-      }
-     }
+        //for loop that goes through the arraylist from the written file 
+        //checks for the arraylist containing the search word the user entered into the search box
+                   for(int i=0; i<infoRead.size(); i++){
+                    if(infoRead.get(i).contains(matchToLookFor)){
+                        result=infoRead.get(i);
+                       break;
+                    }
+                    else{result= "no match";}
+                   }
+                  
+                  //the result displayed to user 
+                 sView.showSearch(result);
+                  
+                    
+      }else{}
+     }}
               sView.addButtonListener(new ButtonListener());   
         }      
     }
