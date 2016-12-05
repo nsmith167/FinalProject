@@ -1,7 +1,7 @@
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.text.ParseException;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -20,8 +20,10 @@ public class ScoreView extends JPanel{
     private JTextArea fileResults; 
   
     //the right pane of the program
+    private GridBagConstraints gbc;
     private JPanel searchPane;
     private JLabel searchLabel;
+    private JPanel searchBoxPane;
     private MaskFormatter searchBoxFormat;
     private JTextField searchBox;
     private JButton loadButton;
@@ -34,28 +36,28 @@ public class ScoreView extends JPanel{
         this.setLayout(new GridLayout(1, 2));
         
         //arraylists to store the information from the example data
-        ArrayList <String> userNames = new ArrayList<>();
-        ArrayList <Integer> scores = new ArrayList <Integer> ();
+        ArrayList<String> userNames = new ArrayList<>();
+        ArrayList<Integer> scores = new ArrayList<>();
         
         //arraylist to get the stored written information from the saved file
-        ArrayList <String> info = new ArrayList <String> ();
+        ArrayList<String> info = new ArrayList<>();
         
         //getting the sample usernames and scores
-        userNames=sModel.getuserNames();
-        scores= sModel.getScores();
+        userNames = sModel.getuserNames();
+        scores = sModel.getScores();
         
         //storing the sample data to the file
         sModel.saveInfotoFile(userNames, scores);
         
         //storing the information from the saved file to this arraylist
-        info=sModel.readInfoFromFile();
+        info = sModel.readInfoFromFile();
         
  
       //the information that will be displayed on the score panel
-        String displayInfo="";
+        String displayInfo = "";
         
-        scorePane = new JPanel();
-
+        scorePane = new JPanel(new GridBagLayout());
+        gbc = new GridBagConstraints();
         //Score Label
         highScoreLabel = new JLabel("High Scores");
         
@@ -65,39 +67,49 @@ public class ScoreView extends JPanel{
             displayInfo = displayInfo+ "\n " + info.get(i);
         }
          
-         //displaying the information from the written file to a textarea
+        //displaying the information from the written file to a textarea
          fileResults = new JTextArea(displayInfo);
          fileResults.setBackground(this.getBackground());
          fileResults.setEditable(false);
         
-        //adding the score elements to the score pane
-        scorePane.add(highScoreLabel);  
-        scorePane.add(fileResults);
+        //Add to score pane
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        scorePane.add(highScoreLabel, gbc); 
+        
+        gbc.gridy++;
+        scorePane.add(fileResults, gbc);
 
         //Search Pane
-        searchPane = new JPanel();
+        searchPane = new JPanel(new GridBagLayout());
+        searchLabel = new JLabel("Search by Username(case-sensitive)");
+        searchBoxPane = new JPanel();
         
-        //a search label
-        searchLabel = new JLabel("Search by Username:");
+        //TextField for search term
+        searchBox = new JTextField("Add Username Here", 10);
         
-        //Textfield where the user can edit for searches
-        searchBox = new JTextField("Add Username Here");
-        
-        //load button will load the users search
+        //The 'Search' Button
         loadButton = new JButton("Search");
         
-    //the area where the search results will be displayed
+        //Displays search results
         searchResult = new JTextArea();
         searchResult.setBackground(this.getBackground());
         searchResult.setEditable(false);
         
-     //adding the search elements to the search pane
-        searchPane.add(searchLabel);    //Will change layout later
-        searchPane.add(searchBox);
-        searchPane.add(loadButton);
-        searchPane.add(searchResult);
+        //Add to search pane
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        searchPane.add(searchLabel, gbc);
         
-     //adding the two panes to the program
+        gbc.gridy++;
+        searchPane.add(searchBoxPane, gbc);
+        searchBoxPane.add(searchBox);
+        searchBoxPane.add(loadButton);
+        
+        gbc.gridy++;
+        searchPane.add(searchResult, gbc);
+        
+        //Add both panes
         this.add(scorePane);
         this.add(searchPane);
         
