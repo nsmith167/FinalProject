@@ -62,7 +62,7 @@ public class ScoreView extends JPanel{
         scorePane.setBackground(Color.WHITE);
         gbc = new GridBagConstraints();
         //Score Label
-        highScoreLabel = new JLabel("High Scores");
+        highScoreLabel = new JLabel("Recent Scores");
         
       
      //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
