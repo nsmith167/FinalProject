@@ -12,15 +12,16 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
-public class ScoreView extends JPanel{
+public class ScoreView extends JPanel {
+    
     private ScoreModel sModel;
     
-    //the left pane of the program
+    //Score pane (Left)
     private JPanel scorePane;
     private JLabel highScoreLabel;
     private JTextArea fileResults; 
   
-    //the right pane of the program
+    //Search pane (Right)
     private GridBagConstraints gbc;
     private JPanel searchPane;
     private JLabel searchLabel;
@@ -54,20 +55,20 @@ public class ScoreView extends JPanel{
         //storing the information from the saved file to this arraylist
         info = sModel.readInfoFromFile();
         
- 
-      //the information that will be displayed on the score panel
+        //the information that will be displayed on the score panel
         String displayInfo = "";
         
         scorePane = new JPanel(new GridBagLayout());
         scorePane.setBackground(Color.WHITE);
         gbc = new GridBagConstraints();
+        
         //Score Label
         highScoreLabel = new JLabel("High Scores");
         
       
-     //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
-         for(int i=0; i<info.size();i++){
-            displayInfo = displayInfo+ "\n " + info.get(i);
+        //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
+        for(int i = 0; i < info.size(); i++) {
+            displayInfo = displayInfo + "\n " + info.get(i);
         }
          
         //displaying the information from the written file to a textarea
@@ -119,19 +120,19 @@ public class ScoreView extends JPanel{
         this.add(searchPane);
         
     }
+    
     //methods to get loadbutton, fill in searchfield, add button listener, and display the user's search
-      public JButton getLoadButton(){
+    public JButton getLoadButton() {
          return this.loadButton;
-     }
-    public String getSearchField(){
+    }
+    public String getSearchField() {
         return this.searchBox.getText();
     }
-      public void addButtonListener(ActionListener al) 
-    { 
+    public void addButtonListener(ActionListener al) { 
         loadButton.addActionListener(al);
     }
-         public void showSearch(String search)
-    {
+    public void showSearch(String search) {
         searchResult.setText(search);
     }
+         
 }
