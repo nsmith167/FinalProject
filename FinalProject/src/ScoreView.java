@@ -36,7 +36,7 @@ public class ScoreView extends JPanel {
         
         this.sModel = sModel;
         this.setLayout(new GridLayout(1, 2));
-        this.setBackground(Color.WHITE);
+        this.setBackground(new Color(235, 252, 244));
         
         //arraylists to store the information from the example data
         ArrayList<String> userNames = new ArrayList<>();
@@ -59,7 +59,7 @@ public class ScoreView extends JPanel {
         String displayInfo = "";
         
         scorePane = new JPanel(new GridBagLayout());
-        scorePane.setBackground(Color.WHITE);
+        scorePane.setBackground(new Color(235, 252, 244));
         gbc = new GridBagConstraints();
         
         //Score Label
@@ -86,16 +86,17 @@ public class ScoreView extends JPanel {
 
         //Search Pane
         searchPane = new JPanel(new GridBagLayout());
-        searchPane.setBackground(Color.WHITE);
+        searchPane.setBackground(new Color(235, 252, 244));
         searchLabel = new JLabel("Search by Username(case-sensitive)");
         searchBoxPane = new JPanel();
-        searchBoxPane.setBackground(Color.WHITE);
+        searchBoxPane.setBackground(new Color(235, 252, 244));
         
         //TextField for search term
-        searchBox = new JTextField("Add Username Here", 10);
+        searchBox = new JTextField("Add Username Here", 15);
         
         //The 'Search' Button
         loadButton = new JButton("Search");
+        loadButton.setBackground(new Color(176, 232, 204));
         
         //Displays search results
         searchResult = new JTextArea();

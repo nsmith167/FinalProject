@@ -14,9 +14,10 @@ public class CreditPanel extends JPanel{
         
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
-        this.setBackground(Color.WHITE);
         
-        creditText = new JLabel("<html><p style=\"text-align:center\"><b>Developers:<b><br><br><br>Nathan Smith<br><br>Lauren Doutt<br><br>Zachary Ishler<br><br></p></html>");
+        this.setBackground(new Color(235, 252, 244));
+        
+        creditText = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Developers:</b></p><p style=\"text-align:center\"><br><br><br>Nathan Smith<br><br>Lauren Doutt<br><br>Zachary Ishler</p></html>");
         
         this.add(creditText, gbc);
         
