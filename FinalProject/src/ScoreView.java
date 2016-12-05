@@ -52,6 +52,7 @@ public class ScoreView extends JPanel {
         //storing the sample data to the file
         sModel.saveInfotoFile(userNames, scores);
         
+      
         //storing the information from the saved file to this arraylist
         info = sModel.readInfoFromFile();
         
@@ -122,16 +123,22 @@ public class ScoreView extends JPanel {
         
     }
     
-    //methods to get loadbutton, fill in searchfield, add button listener, and display the user's search
+    //methods to get loadbutton
     public JButton getLoadButton() {
          return this.loadButton;
     }
+    
+    //gets the text from the search box field
     public String getSearchField() {
         return this.searchBox.getText();
     }
+    
+    //adds button listener to load button
     public void addButtonListener(ActionListener al) { 
         loadButton.addActionListener(al);
     }
+    
+    //shows the search result
     public void showSearch(String search) {
         searchResult.setText(search);
     }

@@ -31,6 +31,7 @@ public class ScoreController {
                   //this variable is going to store the result of the search
                   String result="";
                     
+                  
         //for loop that goes through the arraylist from the written file 
         //checks for the arraylist containing the search word the user entered into the search box
                    for(int i=0; i<infoRead.size(); i++){
@@ -47,6 +48,7 @@ public class ScoreController {
                     
       }else{}
      }}
+            //calling button listener from sView
               sView.addButtonListener(new ButtonListener());   
         }      
     }
