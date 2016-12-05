@@ -1,5 +1,6 @@
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -39,9 +40,11 @@ public class OptionView extends JPanel{
         
         this.oModel = oModel;
         this.setLayout(new BorderLayout());
+        this.setBackground(Color.WHITE);
         
         optionPane = new JPanel();
         optionPane.setLayout(new GridBagLayout());
+        optionPane.setBackground(Color.WHITE);
         gbc = new GridBagConstraints();
         
         optionLabel = new JLabel("Options");
@@ -49,6 +52,7 @@ public class OptionView extends JPanel{
         //Color Option
         colorLabel = new JLabel("Change Snake Color");
         colorButtonPane = new JPanel();
+        colorButtonPane.setBackground(Color.WHITE);
         color1Button = new JButton("Green");
         color2Button = new JButton("Blue");
         colorButtonPane.add(color1Button);
@@ -58,6 +62,7 @@ public class OptionView extends JPanel{
         speedLabel = new JLabel("Snake Speed");
         
         speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
+        speedSlider.setBackground(Color.WHITE);
         speedSlider.setMajorTickSpacing(1);
         speedSlider.setPaintTicks(true);
         speedSlider.setSnapToTicks(true);
@@ -74,6 +79,7 @@ public class OptionView extends JPanel{
         appleSizeLabel = new JLabel("Apple Size");
         
         appleSizeSlider = new JSlider(JSlider.HORIZONTAL, 15, 25, 15);
+        appleSizeSlider.setBackground(Color.WHITE);
         appleSizeSlider.setMajorTickSpacing(5);
         appleSizeSlider.setPaintTicks(true);
         appleSizeSlider.setSnapToTicks(true);
