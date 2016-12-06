@@ -13,9 +13,10 @@ public class NavView extends JFrame{
         super("Snake Game");
         
         this.nModel = nModel;
-        this.setSize(800, 800);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
+        this.setSize(807, 865);
+        this.setResizable(false); //user can't change frame size
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         nvPanel = new NavViewPanel();
         
         this.add(nvPanel);
@@ -28,7 +29,7 @@ public class NavView extends JFrame{
         nvPanel.removeOption();
         nvPanel.removeAbout();
         nvPanel.removeCredit();
-        nvPanel.addGame(gView);        
+        nvPanel.addGame(gView); 
     }
     
     public void switchToScorePanel(ScoreView sView) {

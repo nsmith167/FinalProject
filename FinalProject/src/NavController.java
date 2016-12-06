@@ -7,9 +7,7 @@ public class NavController {
     private NavModel nModel;
     private NavView nView;
     
-    private GameModel gModel;
     private GameView gView;
-    private GameController gController; 
     
     private ScoreModel sModel;
     private ScoreView sView;
@@ -28,9 +26,7 @@ public class NavController {
         this.nModel = nModel;
         this.nView = nView;
         
-        gModel = new GameModel();
-        gView = new GameView(gModel);
-        gController = new GameController(gModel, gView);
+        gView = new GameView();
         
         sModel = new ScoreModel();        
         sView = new ScoreView(sModel);
@@ -57,8 +53,10 @@ public class NavController {
         public void actionPerformed(ActionEvent e) {            
             //Pass a Main View object to our Navigation View
             nView.switchToGamePanel(gView);
+            gView.run();
             //Pass data from Options to Game View
-            gView.setLabels(oModel.getSnakeColor(), oModel.getSnakeSpeed(), oModel.getAppleSize());
+            gView.setSnakeValues(oModel.getSnakeSpeed(), oModel.getSnakeColor());
+            gView.setAppleSize(oModel.getAppleSize());
         }
     }
     
@@ -66,13 +64,17 @@ public class NavController {
         @Override
         public void actionPerformed(ActionEvent e)
         {
+            gView.pause();
             nView.switchToScorePanel(sView);
+            sModel.addUserName(gView.saveName());
+            sModel.addScore(gView.saveScore());
         }
     }     
  
     class OptionButtonListener implements ActionListener {   
         @Override
         public void actionPerformed(ActionEvent e) {
+            gView.pause();
             nView.switchToOptionPanel(oView);
         }
     } 
@@ -80,6 +82,7 @@ public class NavController {
     class AboutButtonListener implements ActionListener {  
         @Override
         public void actionPerformed(ActionEvent e) {
+            gView.pause();
             nView.switchToAboutPanel(aPanel);
         }
     } 
@@ -87,6 +90,7 @@ public class NavController {
     class CreditButtonListener implements ActionListener { 
         @Override
         public void actionPerformed(ActionEvent e) {
+            gView.pause();
             nView.switchToCreditPanel(cPanel);
         }
     } 

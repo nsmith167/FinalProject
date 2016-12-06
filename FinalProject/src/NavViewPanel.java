@@ -22,7 +22,6 @@ public class NavViewPanel extends JPanel{
         
         add(menu, BorderLayout.SOUTH);        
         add(splash, BorderLayout.CENTER); 
-        
     }
     
     //Note: Splash screen is only shown on startup.  No need to navigate back to it.
@@ -38,6 +37,7 @@ public class NavViewPanel extends JPanel{
         add(gView, BorderLayout.CENTER);
         revalidate();
         repaint();
+        gView.requestFocus();
     }    
     
     public void addScore(ScoreView sView) {

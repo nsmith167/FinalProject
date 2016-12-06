@@ -13,13 +13,24 @@ public class ScoreModel {
      
      
     }
-   
+    public void addUserName(String name)
+    {
+        if(!(name.equals("-1")));
+            userNames.add(name);
+    }
+    
     //sample usernames
     public ArrayList getuserNames(){
         userNames.add("Lauren");
         userNames.add("Zach");
         userNames.add("Nathan");
       return userNames;
+    }
+    
+    public void addScore(int score)
+    {
+        if(score != -1)
+            scores.add(score);
     }
     //sample scores
     public ArrayList getScores(){

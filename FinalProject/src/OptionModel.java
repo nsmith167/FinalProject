@@ -11,10 +11,10 @@ public class OptionModel
     
     OptionModel() 
     {
-        //Default values to represent that the user has not selected any options
-        snakeSpeed = -1;
-        appleSize = -1;
-        currSnakeColor = Color.BLACK;
+        //Default values
+        currSnakeColor = Color.GREEN;
+        appleSize = 15;
+        snakeSpeed = 1;
     }
     
     public void setSnakeSpeed(int speed)
