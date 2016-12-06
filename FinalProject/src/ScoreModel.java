@@ -21,9 +21,7 @@ public class ScoreModel {
     
     //sample usernames
     public ArrayList getuserNames(){
-        userNames.add("Lauren");
-        userNames.add("Zach");
-        userNames.add("Nathan");
+       
       return userNames;
     }
     
@@ -34,9 +32,7 @@ public class ScoreModel {
     }
     //sample scores
     public ArrayList getScores(){
-        scores.add(1000);
-        scores.add(2000);
-        scores.add(3000);
+        
       return scores;
     }
     //writing the information to the Files, the info will be displayed as Username Score on each line
