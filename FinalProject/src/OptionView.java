@@ -1,5 +1,6 @@
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -39,9 +40,11 @@ public class OptionView extends JPanel{
         
         this.oModel = oModel;
         this.setLayout(new BorderLayout());
+        this.setBackground(new Color(235, 252, 244));
         
         optionPane = new JPanel();
         optionPane.setLayout(new GridBagLayout());
+        optionPane.setBackground(new Color(235, 252, 244));
         gbc = new GridBagConstraints();
         
         optionLabel = new JLabel("Options");
@@ -49,8 +52,11 @@ public class OptionView extends JPanel{
         //Color Option
         colorLabel = new JLabel("Change Snake Color");
         colorButtonPane = new JPanel();
+        colorButtonPane.setBackground(new Color(235, 252, 244));
         color1Button = new JButton("Green");
+        color1Button.setBackground(new Color(102, 222, 128));
         color2Button = new JButton("Blue");
+        color2Button.setBackground(new Color(102, 200, 222));
         colorButtonPane.add(color1Button);
         colorButtonPane.add(color2Button);
         
@@ -58,6 +64,7 @@ public class OptionView extends JPanel{
         speedLabel = new JLabel("Snake Speed");
         
         speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
+        speedSlider.setBackground(new Color(235, 252, 244));
         speedSlider.setMajorTickSpacing(1);
         speedSlider.setPaintTicks(true);
         speedSlider.setSnapToTicks(true);
@@ -74,6 +81,7 @@ public class OptionView extends JPanel{
         appleSizeLabel = new JLabel("Apple Size");
         
         appleSizeSlider = new JSlider(JSlider.HORIZONTAL, 15, 25, 15);
+        appleSizeSlider.setBackground(new Color(235, 252, 244));
         appleSizeSlider.setMajorTickSpacing(5);
         appleSizeSlider.setPaintTicks(true);
         appleSizeSlider.setSnapToTicks(true);
@@ -87,6 +95,7 @@ public class OptionView extends JPanel{
         appleSizeSlider.setLabelTable(appleSizeTable);
         
         saveButton = new JButton("Save");
+        saveButton.setBackground(new Color(176, 232, 204));
         
         //Positioning, padding, alignment, etc.
         gbc.gridx = 0;

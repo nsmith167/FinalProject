@@ -14,14 +14,20 @@ public class NavMenuPanel extends JPanel {
     JButton optionButton;
     JButton aboutButton;
     JButton creditButton; 
+    private final Color bgColor;
+    private final Color buttonColor;
     
-    private ArrayList<JButton> buttons;
+    private final ArrayList<JButton> buttons;
 	
     public NavMenuPanel() {
 	
         super();
         
-        this.setBackground(Color.WHITE);
+        bgColor = new Color(101, 191, 149);
+        buttonColor = new Color(176, 232, 204);
+        
+        
+        this.setBackground(bgColor);
         
         menuButtonDimension = new Dimension(150, 25);
         
@@ -52,6 +58,7 @@ public class NavMenuPanel extends JPanel {
     private void applyButtonChanges() {
         for(int i = 0; i < buttons.size(); i++) {
             buttons.get(i).setPreferredSize(menuButtonDimension);
+            buttons.get(i).setBackground(buttonColor);
         }
     }
     

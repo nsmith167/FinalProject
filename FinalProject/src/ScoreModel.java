@@ -34,7 +34,7 @@ public class ScoreModel {
     }
     //sample scores
     public ArrayList getScores(){
-         scores.add(1000);
+        scores.add(1000);
         scores.add(2000);
         scores.add(3000);
       return scores;

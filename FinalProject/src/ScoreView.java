@@ -1,7 +1,8 @@
 
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.text.ParseException;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -11,17 +12,20 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
-public class ScoreView extends JPanel{
+public class ScoreView extends JPanel {
+    
     private ScoreModel sModel;
     
-    //the left pane of the program
+    //Score pane (Left)
     private JPanel scorePane;
     private JLabel highScoreLabel;
     private JTextArea fileResults; 
   
-    //the right pane of the program
+    //Search pane (Right)
+    private GridBagConstraints gbc;
     private JPanel searchPane;
     private JLabel searchLabel;
+    private JPanel searchBoxPane;
     private MaskFormatter searchBoxFormat;
     private JTextField searchBox;
     private JButton loadButton;
@@ -32,89 +36,111 @@ public class ScoreView extends JPanel{
         
         this.sModel = sModel;
         this.setLayout(new GridLayout(1, 2));
+        this.setBackground(new Color(235, 252, 244));
         
         //arraylists to store the information from the example data
-        ArrayList <String> userNames = new ArrayList<>();
-        ArrayList <Integer> scores = new ArrayList <Integer> ();
+        ArrayList<String> userNames = new ArrayList<>();
+        ArrayList<Integer> scores = new ArrayList<>();
         
         //arraylist to get the stored written information from the saved file
-        ArrayList <String> info = new ArrayList <String> ();
+        ArrayList<String> info = new ArrayList<>();
         
         //getting the sample usernames and scores
-        userNames=sModel.getuserNames();
-        scores= sModel.getScores();
+        userNames = sModel.getuserNames();
+        scores = sModel.getScores();
         
         //storing the sample data to the file
         sModel.saveInfotoFile(userNames, scores);
         
+      
         //storing the information from the saved file to this arraylist
-        info=sModel.readInfoFromFile();
+        info = sModel.readInfoFromFile();
         
- 
-      //the information that will be displayed on the score panel
-        String displayInfo="";
+        //the information that will be displayed on the score panel
+        String displayInfo = "";
         
-        scorePane = new JPanel();
-
+        scorePane = new JPanel(new GridBagLayout());
+        scorePane.setBackground(new Color(235, 252, 244));
+        gbc = new GridBagConstraints();
+        
         //Score Label
-        highScoreLabel = new JLabel("High Scores");
+        highScoreLabel = new JLabel("Recent Scores");
         
       
-     //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
-         for(int i=0; i<info.size();i++){
-            displayInfo = displayInfo+ "\n " + info.get(i);
+        //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
+        for(int i = 0; i < info.size(); i++) {
+            displayInfo = displayInfo + "\n " + info.get(i);
         }
          
-         //displaying the information from the written file to a textarea
+        //displaying the information from the written file to a textarea
          fileResults = new JTextArea(displayInfo);
          fileResults.setBackground(this.getBackground());
          fileResults.setEditable(false);
         
-        //adding the score elements to the score pane
-        scorePane.add(highScoreLabel);  
-        scorePane.add(fileResults);
+        //Add to score pane
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        scorePane.add(highScoreLabel, gbc); 
+        
+        gbc.gridy++;
+        scorePane.add(fileResults, gbc);
 
         //Search Pane
-        searchPane = new JPanel();
+        searchPane = new JPanel(new GridBagLayout());
+        searchPane.setBackground(new Color(235, 252, 244));
+        searchLabel = new JLabel("Search by Username(case-sensitive)");
+        searchBoxPane = new JPanel();
+        searchBoxPane.setBackground(new Color(235, 252, 244));
         
-        //a search label
-        searchLabel = new JLabel("Search by Username:");
+        //TextField for search term
+        searchBox = new JTextField("Add Username Here", 15);
         
-        //Textfield where the user can edit for searches
-        searchBox = new JTextField("Add Username Here");
-        
-        //load button will load the users search
+        //The 'Search' Button
         loadButton = new JButton("Search");
+        loadButton.setBackground(new Color(176, 232, 204));
         
-    //the area where the search results will be displayed
+        //Displays search results
         searchResult = new JTextArea();
         searchResult.setBackground(this.getBackground());
         searchResult.setEditable(false);
         
-     //adding the search elements to the search pane
-        searchPane.add(searchLabel);    //Will change layout later
-        searchPane.add(searchBox);
-        searchPane.add(loadButton);
-        searchPane.add(searchResult);
+        //Add to search pane
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        searchPane.add(searchLabel, gbc);
         
-     //adding the two panes to the program
+        gbc.gridy++;
+        searchPane.add(searchBoxPane, gbc);
+        searchBoxPane.add(searchBox);
+        searchBoxPane.add(loadButton);
+        
+        gbc.gridy++;
+        searchPane.add(searchResult, gbc);
+        
+        //Add both panes
         this.add(scorePane);
         this.add(searchPane);
         
     }
-    //methods to get loadbutton, fill in searchfield, add button listener, and display the user's search
-      public JButton getLoadButton(){
+    
+    //methods to get loadbutton
+    public JButton getLoadButton() {
          return this.loadButton;
-     }
-    public String getSearchField(){
+    }
+    
+    //gets the text from the search box field
+    public String getSearchField() {
         return this.searchBox.getText();
     }
-      public void addButtonListener(ActionListener al) 
-    { 
+    
+    //adds button listener to load button
+    public void addButtonListener(ActionListener al) { 
         loadButton.addActionListener(al);
     }
-         public void showSearch(String search)
-    {
+    
+    //shows the search result
+    public void showSearch(String search) {
         searchResult.setText(search);
     }
+         
 }

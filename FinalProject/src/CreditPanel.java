@@ -1,59 +1,25 @@
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CreditPanel extends JPanel{
     
-    private JPanel creditPane;
-    private GridBagConstraints gbc;
-    
-    private JLabel creditTitle;
-    private JLabel creditText1;
-    private JLabel creditText2;
-    private JLabel creditText3;
-    private JLabel creditText4;
+    private final GridBagConstraints gbc;
+    private final JLabel creditText;
     
     CreditPanel() {
         
-        this.setLayout(new BorderLayout());
-        this.setBackground(Color.WHITE);
-        
-        
-        creditPane = new JPanel();
-        creditPane.setBackground(Color.WHITE);
-        creditPane.setLayout(new GridBagLayout());
+        this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         
-        creditTitle = new JLabel("Credits");
-        creditText1 = new JLabel("Developers:");
-        creditText2 = new JLabel("Nathan Smith");
-        creditText3 = new JLabel("Lauren Doutt");
-        creditText4 = new JLabel("Zachary Ishler");
+        this.setBackground(new Color(235, 252, 244));
         
-        //Positioning, padding, alignment, etc.
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(10,10,10,10);
-        creditPane.add(creditTitle, gbc);
+        creditText = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Developers:</b></p><p style=\"text-align:center\"><br><br><br>Nathan Smith<br><br>Lauren Doutt<br><br>Zachary Ishler</p></html>");
         
-        gbc.gridy++;
-        creditPane.add(creditText1, gbc);
-        
-        gbc.gridy++;
-        creditPane.add(creditText2, gbc);
-        
-        gbc.gridy++;
-        creditPane.add(creditText3, gbc);
-        
-        gbc.gridy++;
-        creditPane.add(creditText4, gbc);
-        
-        this.add(creditPane, BorderLayout.CENTER);
+        this.add(creditText, gbc);
         
     }
     
