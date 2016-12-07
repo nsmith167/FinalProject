@@ -93,7 +93,7 @@ public class ScoreView extends JPanel {
         searchBoxPane.setBackground(new Color(235, 252, 244));
         
         //TextField for search term
-        searchBox = new JTextField("Add Username Here", 15);
+        searchBox = new JTextField(15);
         
         //The 'Search' Button
         loadButton = new JButton("Search");

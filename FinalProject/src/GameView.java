@@ -1,7 +1,9 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -26,6 +28,7 @@ public class GameView extends JPanel implements KeyListener, ActionListener
     private int score;
     private JLabel scoreDisplay;
     private JPanel deadPanel;
+    private GridBagConstraints gbc;
     private JLabel nameLabel;
     private JTextField nameInput;
     private JButton saveButton;
@@ -55,17 +58,23 @@ public class GameView extends JPanel implements KeyListener, ActionListener
         
         //Components to display upon death
         deadPanel = new JPanel();
-        deadPanel.setPreferredSize(new Dimension(200, 75));
-        deadPanel.setLayout(new BorderLayout());
+        deadPanel.setPreferredSize(new Dimension(300, 500));
+        deadPanel.setLayout(new GridBagLayout());
+        gbc = new GridBagConstraints();
         deadPanel.setBackground(new Color(235, 252, 244));
-        nameLabel = new JLabel("You died! Enter your name:");
-        nameInput = new JTextField();
+        nameLabel = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>You died! Enter your name:</b></p></html>");
+        nameInput = new JTextField(15);
         saveButton = new JButton("Save");
         saveButton.addActionListener(new SaveButtonListener());
         saveButton.setBackground(new Color(176, 232, 204));
-        deadPanel.add(nameLabel, BorderLayout.NORTH);
-        deadPanel.add(nameInput, BorderLayout.CENTER);
-        deadPanel.add(saveButton, BorderLayout.SOUTH);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        deadPanel.add(nameLabel, gbc);
+        gbc.gridy++;
+        deadPanel.add(nameInput, gbc); 
+        gbc.gridy++;
+        deadPanel.add(saveButton, gbc);
         
     }
     
