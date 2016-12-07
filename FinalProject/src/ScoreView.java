@@ -15,6 +15,8 @@ import javax.swing.JButton;
 public class ScoreView extends JPanel {
     
     private ScoreModel sModel;
+    private ArrayList<String> scoreInfo = new ArrayList<>();
+    private String displayInfo;
     
     //Score pane (Left)
     private JPanel scorePane;
@@ -37,27 +39,9 @@ public class ScoreView extends JPanel {
         this.sModel = sModel;
         this.setLayout(new GridLayout(1, 2));
         this.setBackground(new Color(235, 252, 244));
-        
-        //arraylists to store the information from the example data
-        ArrayList<String> userNames = new ArrayList<>();
-        ArrayList<Integer> scores = new ArrayList<>();
-        
-        //arraylist to get the stored written information from the saved file
-        ArrayList<String> info = new ArrayList<>();
-        
-        //getting the sample usernames and scores
-        userNames = sModel.getuserNames();
-        scores = sModel.getScores();
-        
-        //storing the sample data to the file
-        sModel.saveInfotoFile(userNames, scores);
-        
-      
-        //storing the information from the saved file to this arraylist
-        info = sModel.readInfoFromFile();
-        
+          
         //the information that will be displayed on the score panel
-        String displayInfo = "";
+        displayInfo = "";
         
         scorePane = new JPanel(new GridBagLayout());
         scorePane.setBackground(new Color(235, 252, 244));
@@ -66,12 +50,6 @@ public class ScoreView extends JPanel {
         //Score Label
         highScoreLabel = new JLabel("Recent Scores");
         
-      
-        //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
-        for(int i = 0; i < info.size(); i++) {
-            displayInfo = displayInfo + "\n " + info.get(i);
-        }
-         
         //displaying the information from the written file to a textarea
          fileResults = new JTextArea(displayInfo);
          fileResults.setBackground(this.getBackground());
@@ -123,6 +101,15 @@ public class ScoreView extends JPanel {
         
     }
     
+    public void displayScores()
+    {
+        scoreInfo = sModel.readInfoFromFile();
+        //a for loop to go through the saved file's arraylist and saving all the data to displayinfo
+        for(int i = 0; i < scoreInfo.size(); i++) {
+            displayInfo = displayInfo + "\n " + scoreInfo.get(i);
+        }
+        fileResults.setText(displayInfo);
+    }
     //methods to get loadbutton
     public JButton getLoadButton() {
          return this.loadButton;
