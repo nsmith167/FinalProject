@@ -47,10 +47,10 @@ public class OptionView extends JPanel{
         optionPane.setBackground(new Color(235, 252, 244));
         gbc = new GridBagConstraints();
         
-        optionLabel = new JLabel("Options");
+        optionLabel = new JLabel("<html><p style=\"text-align:center;font-size:14px\"><b>Options</b></p></html>");
         
         //Color Option
-        colorLabel = new JLabel("Change Snake Color");
+        colorLabel = new JLabel("<html><p style=\"text-align:center;font-size:10px\"><b>Change Snake Color</b></p></html>");
         colorButtonPane = new JPanel();
         colorButtonPane.setBackground(new Color(235, 252, 244));
         color1Button = new JButton("Green");
@@ -61,7 +61,7 @@ public class OptionView extends JPanel{
         colorButtonPane.add(color2Button);
         
         //Snake Speed Option
-        speedLabel = new JLabel("Snake Speed");
+        speedLabel = new JLabel("<html><p style=\"text-align:center;font-size:10px\"><b>Snake Speed</b></p></html>");
         
         speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 3, 1);
         speedSlider.setBackground(new Color(235, 252, 244));
@@ -78,7 +78,7 @@ public class OptionView extends JPanel{
         speedSlider.setLabelTable(speedTable);
         
         //Apple Size Option
-        appleSizeLabel = new JLabel("Apple Size");
+        appleSizeLabel = new JLabel("<html><p style=\"text-align:center;font-size:10px\"><b>Apple Size</b></p></html>");
         
         appleSizeSlider = new JSlider(JSlider.HORIZONTAL, 15, 25, 15);
         appleSizeSlider.setBackground(new Color(235, 252, 244));
