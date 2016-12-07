@@ -9,14 +9,13 @@ public class ScoreModel {
       ArrayList <String> userNames = new ArrayList<>();
       ArrayList <Integer> scores = new ArrayList <Integer> ();
        
-    ScoreModel() {
-     
+    ScoreModel() 
+    {
      
     }
     public void addUserName(String name)
     {
-        if(!(name.equals("-1")));
-            userNames.add(name);
+        userNames.add(name);
     }
     
     //sample usernames
@@ -27,8 +26,7 @@ public class ScoreModel {
     
     public void addScore(int score)
     {
-        if(score != -1)
-            scores.add(score);
+        scores.add(score);
     }
     //sample scores
     public ArrayList getScores(){

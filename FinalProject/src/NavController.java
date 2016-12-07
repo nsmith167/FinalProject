@@ -70,10 +70,10 @@ public class NavController {
             {
                 sModel.addUserName(gView.saveName());
                 sModel.addScore(gView.saveScore());
+                sModel.saveInfotoFile(sModel.getuserNames(), sModel.getScores());
                 gView.resetSave();
             }
-            System.out.println(sModel.getuserNames());
-            System.out.println(sModel.getScores());
+            sView.displayScores();
         }
     }     
  
