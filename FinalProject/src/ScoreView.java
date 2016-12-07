@@ -48,7 +48,7 @@ public class ScoreView extends JPanel {
         gbc = new GridBagConstraints();
         
         //Score Label
-        highScoreLabel = new JLabel("Recent Scores");
+        highScoreLabel = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Recent Scores</b></p></html>");
         
         //displaying the information from the written file to a textarea
          fileResults = new JTextArea(displayInfo);
@@ -66,12 +66,12 @@ public class ScoreView extends JPanel {
         //Search Pane
         searchPane = new JPanel(new GridBagLayout());
         searchPane.setBackground(new Color(235, 252, 244));
-        searchLabel = new JLabel("Search by Username(case-sensitive)");
+        searchLabel = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Search by Username (case-sensitive)</b></p></html>");
         searchBoxPane = new JPanel();
         searchBoxPane.setBackground(new Color(235, 252, 244));
         
         //TextField for search term
-        searchBox = new JTextField("Add Username Here", 15);
+        searchBox = new JTextField(15);
         
         //The 'Search' Button
         loadButton = new JButton("Search");

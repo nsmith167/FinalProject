@@ -17,7 +17,7 @@ public class AboutPanel extends JPanel{
         
         this.setBackground(new Color(235, 252, 244));
         
-        aboutText = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Instructions:</b></p><p style=\"text-align:center\"><br><br><br>Eat apples to get points.<br><br>The more you eat the longer your tail gets.<br><br>Use the arrow keys to change your direction.<br><br>Don't collide with yourself or the walls.</p></html>");
+        aboutText = new JLabel("<html><p style=\"text-align:center;font-size:14px\"><b>Instructions:</b></p><p style=\"text-align:center;font-size:10px\"><br><br>Eat apples to get points.<br><br>The more you eat the longer your tail gets.<br><br>Use the arrow keys to change your direction.<br><br>Don't collide with yourself or the walls.</p></html>");
         
         this.add(aboutText, gbc);
         

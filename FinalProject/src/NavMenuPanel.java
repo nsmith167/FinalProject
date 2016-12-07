@@ -29,7 +29,7 @@ public class NavMenuPanel extends JPanel {
         
         this.setBackground(bgColor);
         
-        menuButtonDimension = new Dimension(150, 25);
+        menuButtonDimension = new Dimension(140, 25);
         
         gameButton = new JButton("Game");
         scoreButton = new JButton("Scores");

@@ -17,7 +17,7 @@ public class CreditPanel extends JPanel{
         
         this.setBackground(new Color(235, 252, 244));
         
-        creditText = new JLabel("<html><p style=\"text-align:center;font-size:12px\"><b>Developers:</b></p><p style=\"text-align:center\"><br><br><br>Nathan Smith<br><br>Lauren Doutt<br><br>Zachary Ishler</p></html>");
+        creditText = new JLabel("<html><p style=\"text-align:center;font-size:14px\"><b>Developers:</b></p><p style=\"text-align:center;font-size:10px\"><br><br>Nathan Smith<br><br>Lauren Doutt<br><br>Zachary Ishler</p></html>");
         
         this.add(creditText, gbc);
         
