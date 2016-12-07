@@ -171,7 +171,6 @@ public class GameView extends JPanel implements KeyListener, ActionListener
     
     public void dead()
     {
-        //TODO: add some functionality to what to do when dead
         running = false;
         dead = true;
         add(deadPanel);
@@ -196,18 +195,22 @@ public class GameView extends JPanel implements KeyListener, ActionListener
     
     public String saveName()
     {
-        if(saved == true)
-            return name;
-        else
-            return "-1";
+        return name;
     }
     
     public int saveScore()
     {
-        if(saved == true)
-            return score;
-        else
-            return -1;
+        return score;
+    }
+    
+    public boolean pressedSave()
+    {
+        return saved;
+    }
+    
+    public void resetSave()
+    {
+        saved = false;
     }
     
     @Override

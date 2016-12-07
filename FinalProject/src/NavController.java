@@ -66,8 +66,14 @@ public class NavController {
         {
             gView.pause();
             nView.switchToScorePanel(sView);
-            sModel.addUserName(gView.saveName());
-            sModel.addScore(gView.saveScore());
+            if(gView.pressedSave())
+            {
+                sModel.addUserName(gView.saveName());
+                sModel.addScore(gView.saveScore());
+                gView.resetSave();
+            }
+            System.out.println(sModel.getuserNames());
+            System.out.println(sModel.getScores());
         }
     }     
  
