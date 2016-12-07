@@ -13,7 +13,7 @@ public class NavView extends JFrame{
         super("Snake Game");
         
         this.nModel = nModel;
-        this.setSize(807, 865);
+        this.setSize(775, 625);
         this.setResizable(false); //user can't change frame size
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
