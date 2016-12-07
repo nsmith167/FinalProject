@@ -15,19 +15,29 @@ public class OptionController {
         this.oView = oView;
         
         class ButtonListener implements ActionListener {
+            
             @Override
             public void actionPerformed(ActionEvent ae) {
+                
                 JButton eventButton = (JButton)ae.getSource();
-                if(eventButton == oView.getColor1Button())
+                
+                if(eventButton == oView.getColor1Button()) {            //Green Button Source
+                    
                     oModel.setSnakeColor(new Color(102, 222, 128));
-                else if(eventButton == oView.getColor2Button())
+                    
+                } else if(eventButton == oView.getColor2Button()) {     //Blue Button Source
+                    
                     oModel.setSnakeColor(new Color(102, 200, 222));
-                else if(eventButton == oView.getSaveButton()) //really only necessary for the sliders
-                {
+                    
+                } else if(eventButton == oView.getSaveButton()) {       //Save Button Source
+                    
                     oModel.setSnakeSpeed(oView.getSpeedValue());
                     oModel.setAppleSize(oView.getAppleSize());
+                    
                 }
+                
             }
+            
         }
         
         oView.addButtonListener(new ButtonListener());
