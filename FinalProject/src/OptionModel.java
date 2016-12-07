@@ -12,7 +12,7 @@ public class OptionModel
     OptionModel() 
     {
         //Default values
-        currSnakeColor = Color.GREEN;
+        currSnakeColor = new Color(102, 222, 128);
         appleSize = 15;
         snakeSpeed = 1;
     }

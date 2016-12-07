@@ -22,9 +22,9 @@ public class OptionController
             {
                 JButton eventButton = (JButton)ae.getSource();
                 if(eventButton == oView.getColor1Button())
-                    oModel.setSnakeColor(Color.GREEN);
+                    oModel.setSnakeColor(new Color(102, 222, 128));
                 else if(eventButton == oView.getColor2Button())
-                    oModel.setSnakeColor(Color.BLUE);
+                    oModel.setSnakeColor(new Color(102, 200, 222));
                 else if(eventButton == oView.getSaveButton()) //really only necessary for the sliders
                 {
                     oModel.setSnakeSpeed(oView.getSpeedValue());

@@ -37,9 +37,10 @@ public class GameView extends JPanel implements KeyListener, ActionListener
     
     GameView() 
     { 
+        this.setBackground(new Color(235, 252, 244));
         score = 0;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        currApple = new Dot(75, 75, Color.RED, 15);
+        currApple = new Dot(75, 75, new Color(214, 73, 73), 15);
         snake = new Snake(200, 200);
         collided = false;
         dead = false;
@@ -56,10 +57,12 @@ public class GameView extends JPanel implements KeyListener, ActionListener
         deadPanel = new JPanel();
         deadPanel.setPreferredSize(new Dimension(200, 75));
         deadPanel.setLayout(new BorderLayout());
+        deadPanel.setBackground(new Color(235, 252, 244));
         nameLabel = new JLabel("You died! Enter your name:");
         nameInput = new JTextField();
         saveButton = new JButton("Save");
         saveButton.addActionListener(new SaveButtonListener());
+        saveButton.setBackground(new Color(176, 232, 204));
         deadPanel.add(nameLabel, BorderLayout.NORTH);
         deadPanel.add(nameInput, BorderLayout.CENTER);
         deadPanel.add(saveButton, BorderLayout.SOUTH);
