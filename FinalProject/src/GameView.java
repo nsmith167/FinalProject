@@ -32,8 +32,8 @@ public class GameView extends JPanel implements KeyListener, ActionListener
     private String name;
     
     private final int PADDING = 30; //closest any dot can be to the edge of the panel
-    private final int WIDTH = 800;
-    private final int HEIGHT = 800;
+    private final int WIDTH = 768;
+    private final int HEIGHT = 560;
     
     GameView() 
     { 
